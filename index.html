@@ -1205,7 +1205,7 @@ const TOPICS = [
             },
             {
                 name: "Statin or statin/ezetimibe",
-                dose: "e.g. atorvastatin 10–80 mg or rosuvastatin 5–40 mg daily, ± ezetimibe 10 mg",
+                dose: "BC Appendix C intensive regimens: atorvastatin 20 mg daily; rosuvastatin 10 mg daily; or simvastatin 20 mg + ezetimibe 10 mg daily.",
                 adjustment: "Age ≥ 50: statin for all (KDIGO: statin or statin/ezetimibe if eGFR < 60). Age 18–49 (KDIGO criteria): coronary disease, diabetes, prior ischemic stroke or 10-year risk > 10%. CrCl < 30: rosuvastatin start 5 mg, max 10 mg; atorvastatin start at 10 mg. These recommendations exclude dialysis and kidney transplant.",
                 src: "BC CKD 2025; KDIGO 2024 Rec 3.15.1; Lipitor, Crestor and Ezetrol product monographs",
             },
@@ -1839,7 +1839,7 @@ const TOPICS = [
         points: [
             "Average risk | No personal history of colorectal cancer, surveillance polyps or IBD; no qualifying family history (**one relative diagnosed at 60 or older still counts as average**). **45–74: FIT every 2 years**. **75–85**: optional, if benefit outweighs risk given health, life expectancy and past screening. **86 and over: strongly recommend against**",
             "Ordering FIT | Fax the new requisition to **ICL (1-833-520-1544)**; the kit is mailed to the patient. No family doctor or NP: patient calls **811**. Unreturned kits get a reminder letter at 2 months. Ontario mails invitation letters to 45–49-year-olds over two years from July 2026",
-            "Abnormal FIT | Refer for **colonoscopy as soon as possible** — ColonCancerCheck recommends **within 8 weeks**",
+            "Abnormal FIT | Refer for **colonoscopy as soon as possible** (OCFP summary); ColonCancerCheck's target is **within 8 weeks** (ColonCancerCheck, ontario.ca)",
             "Increased risk | **One first-degree relative diagnosed before 60**; **two or more at any age**; first-degree = parent, sibling, child. **Colonoscopy from 40, or 10 years before the youngest relative's diagnosis**, whichever is earlier; repeat every **5 years** if no polyps. Ontario Health doesn't track family history, so there's **no letter specific to increased risk** — identify and refer them",
             "Not screening | Colonoscopy as a first-line screen in average risk is not recommended nationally",
         ],
@@ -1901,8 +1901,8 @@ const TOPICS = [
         changed: "",
         beyondGuideline: "",
         points: [
-            "Who qualifies | Age **55–80**; **smoked daily for ≥ 20 years** (need not be consecutive); valid OHIP. Then a program navigator runs the risk calculation (PLCOm2012noRace), so you don't need to: **≥ 2% risk over 6 years** to be screened",
-            "Referral | Clinician referral **or self-referral** to a program site",
+            "Who qualifies | Age **55 or older**; **smoked daily for ≥ 20 years** (need not be consecutive). Participants exit at 80, with annual re-referral if still eligible; screening past 80 by shared decision-making about benefits and harms. The OLSP site runs the risk calculation (PLCOm2012): **≥ 2% risk over 6 years** to be screened. Screening is free for eligible people in Ontario.",
+            "Referral | Self-present to a program site, or clinician referral; a physician or nurse practitioner completes the OLSP Referral Form. If a self-presenting person is eligible and has a primary care provider, the site contacts that provider to request the referral.",
             "Test | **Low-dose CT**. Lung-RADS 1 or 2 (negative) → **repeat in about 12 months**, and continue yearly while eligible. **No chest X-ray screening**, with or without sputum cytology (Task Force). The program pathway links screening to **smoking cessation**",
         ],
         meds: [],
@@ -2734,7 +2734,10 @@ const TOPICS = [
             "Starting the pill, patch or ring | **Blood pressure is the only test needed**. No pelvic exam, Pap, STI screen or thrombophilia testing. **Quick start** any day if pregnancy is reasonably excluded — **backup for 7 days** unless started on day 1 of the period",
             "Missed pills | Risk is in a hormone-free gap **> 7 days**: ;; One missed in **week 1**: backup until 7 days in a row ;; Missed in **week 2 or 3**: skip the hormone-free week ;; **≥ 3 in a row** in weeks 2–3: skip it **and** use backup for 7 days ;; Consider emergency contraception if the gap ran over 7 days",
             "Combined hormonal cautions | Raises **VTE risk** — progestin type doesn't justify choosing one pill over another. Effectiveness drops with **some anticonvulsants, some antiretrovirals, rifampicin, griseofulvin**. Patch may fail at **≥ 90 kg**. Extended or continuous use works as well, with fewer period symptoms",
-            "Progestin-only | Use when estrogen is a problem: **postpartum, breastfeeding, smokers over 35**. No rise in VTE, MI or stroke: ;; **DMPA**: **no limit on duration**; bone density loss is reversible; counsel on calcium, vitamin D, exercise. Delays return of ovulation. Doesn't reduce breast milk ;; **Progestin-only pill > 3 h late**: take a pill as soon as possible, continue daily, backup contraception for **48 h**, emergency contraception if unprotected sex in the past 5 days",
+            "Progestin-only | Use when estrogen is a problem: **postpartum, breastfeeding, smokers over 35**. No rise in VTE, MI or stroke: ;; **DMPA**: **no limit on duration**; bone density loss is reversible; counsel on calcium, vitamin D, exercise. Delays return of ovulation. Doesn't reduce breast milk ;; **Progestin-only pill > 3 h late**: take a pill as soon as possible, continue daily, backup contraception for **48 h**, emergency contraception if unprotected sex in the past 5 days*",
+        ],
+        footnotes: [
+            { mark: "*", text: "**Progestin-only pill timing rule:** Kaiser Permanente Health Encyclopedia (Healthwise), What to Do About Missed or Skipped Birth Control Pills.", url: "https://healthy.kaiserpermanente.org/health-wellness/health-encyclopedia/he.what-to-do-about-missed-or-skipped-birth-control-pills.hw7456", label: "Source" },
         ],
         meds: [],
         calculators: [],
@@ -2752,7 +2755,7 @@ const TOPICS = [
             { j: "CFP", year: 2025, title: "Extended duration of use of long-acting reversible contraceptives (systematic review)", note: "No pregnancies with the **etonogestrel implant 1–2 years past its labelled limit**, or the **copper T380A IUD in years 8–16**. LNG-IUS: none in most studies to 6–15 years, but a few pregnancies in years 6–7. Expulsion risk continues with long use. Extended use is reasonable where access to care is disrupted", url: "https://doi.org/10.46747/cfp.7102e35" },
             { j: "CMAJ", year: 2024, title: "Pain management in people receiving intrauterine device insertion", note: "Trauma-informed counselling; patient can stop any time · premedicate **60 min before** with acetaminophen plus an NSAID (or tramadol) — **misoprostol doesn't reduce pain** · smallest speculum · topical cervical **lidocaine 5 min before**, or a paracervical/intracervical block if trained · distraction and a support person help · sedation or nitrous may need gynecology referral", url: "https://doi.org/10.1503/cmaj.240120" },
         ],
-        editorial: "Written from SOGC No. 329: Ch. 8 read in full; Ch. 7 and 9 from their summary statements and recommendations only (JOGC paywall). Parts 1 and 2 (choosing a method, counselling, condition-specific eligibility such as migraine with aura, hypertension or the early postpartum weeks) were not captured here. Emergency contraception is No. 329 Chapter 3 (Part 1, 2015). Currency verified Nov 3, 2026 against JOGC's current clinical practice guidelines listing: Parts 1–2 are 2015 chapters, Part 3 is 2016 and Part 4 is 2017; there is no newer contraception consensus in 2024–2026, only supplements, including the 2025 implant-removal statement used here. Implant line from the SOGC Position Statement: Contraceptive Implant Removal (July 23, 2025). OHIP+ eligibility (24 and under, not covered by a private plan) checked on ontario.ca (updated Feb 11, 2026). The CMAJ IUD-pain note was verified from full text on Nov 3, 2026 (Arion, Booth & McQuillan, CMAJ 2024;196(30):E1045, doi 10.1503/cmaj.240120).",
+        editorial: "Written from SOGC No. 329: Ch. 8 read in full; Ch. 7 and 9 from their summary statements and recommendations only (JOGC paywall). Parts 1 and 2 (choosing a method, counselling, condition-specific eligibility such as migraine with aura, hypertension or the early postpartum weeks) were not captured here. Emergency contraception is No. 329 Chapter 3 (Part 1, 2015). Currency verified Nov 3, 2026 against JOGC's current clinical practice guidelines listing: Parts 1–2 are 2015 chapters, Part 3 is 2016 and Part 4 is 2017; there is no newer contraception consensus in 2024–2026, only supplements, including the 2025 implant-removal statement used here. Implant line from the SOGC Position Statement: Contraceptive Implant Removal (July 23, 2025). OHIP+ eligibility (24 and under, not covered by a private plan) checked on ontario.ca (updated Feb 11, 2026). The CMAJ IUD-pain note was verified from full text on Nov 3, 2026 (Arion, Booth & McQuillan, CMAJ 2024;196(30):E1045, doi 10.1503/cmaj.240120). The progestin-only pill timing rule (> 3 h late) has no passage in Ch. 8's published summary statements or recommendations; it is cited to the Kaiser Permanente Health Encyclopedia (Healthwise) missed-pills page, which states the same rule (Ron's ruling, Nov 11, 2026).",
     },
     {
         id: "pharyngitis",
@@ -2990,7 +2993,7 @@ const TOPICS = [
             {
                 name: "PEG 3350",
                 dose: "17 g at night in 250 mL fluid, up to 34 g/day",
-                adjustment: "IBS-C stool frequency; onset 48–96 h; safe long term. Does not improve overall IBS symptoms (CAG, conditional). The pathway advises against lactulose because of bloating and cramps.",
+                adjustment: "IBS-C stool frequency; onset 48–96 h; safe long term. Does not improve overall IBS symptoms. The pathway advises against lactulose because of bloating and cramps.",
             },
             {
                 name: "Loperamide",
@@ -3000,7 +3003,7 @@ const TOPICS = [
             {
                 name: "Eluxadoline",
                 dose: "100 mg BID with food; 75 mg BID if 100 mg isn't tolerated, and as the starting dose at 65 or over",
-                adjustment: "IBS-D (CAG: conditional, moderate certainty). Contraindicated with no gallbladder, biliary duct obstruction or sphincter of Oddi dysfunction, > 3 drinks a day, prior pancreatitis, any hepatic impairment, or chronic or severe constipation.",
+                adjustment: "IBS-D. Contraindicated with no gallbladder, biliary duct obstruction or sphincter of Oddi dysfunction, > 3 drinks a day, prior pancreatitis, any hepatic impairment, or chronic or severe constipation.",
                 src: "CAG 2019 (recommendation); Viberzi product monograph, 2024 (dose and contraindications)",
             },
             {
@@ -3121,7 +3124,7 @@ const TOPICS = [
             {
                 name: "Cefuroxime axetil",
                 dose: "30 mg/kg/day divided BID or TID",
-                adjustment: "Non-life-threatening penicillin allergy. Avoid all beta-lactams after angioedema, bronchospasm or hypotension.",
+                adjustment: "Non-life-threatening penicillin allergy only. After a life-threatening reaction, a macrolide or clindamycin instead.",
             },
             {
                 name: "Ceftriaxone",
@@ -3565,7 +3568,7 @@ const TOPICS = [
             {
                 name: "Antacids",
                 dose: "On demand; effect lasts about 1.5 h",
-                adjustment: "Calcium (Rolaids, Tums) most potent, then magnesium, then aluminum (Gaviscon) least potent. Magnesium can cause diarrhea, calcium constipation; caution in renal disease.",
+                adjustment: "Calcium (Rolaids, Tums) most potent, then sodium bicarbonate, then magnesium, then aluminum (Gaviscon) least potent. Magnesium can cause diarrhea, calcium constipation; caution in renal disease.",
             },
         ],
         calculators: [],
@@ -3779,7 +3782,7 @@ const TOPICS = [
                 url: "https://www.ontario.ca/page/respiratory-equipment-and-supplies",
             },
         ],
-        editorial: "From the BC guideline web page (effective 19 Sep 2023; the alphabetical listing shows 2021). STOP-Bang items and cut-offs are in Appendix C, not read. CPAP troubleshooting (Table 2) not included. Tirzepatide (Health Canada approved June 2026 for moderate to severe OSA in adults with obesity) is deliberately not covered.",
+        editorial: "From the BC Guidelines guideline, Obstructive Sleep Apnea: Assessment and Management in Adults (2021 edition, effective October 21, 2021). STOP-Bang items and cut-offs are in Appendix C, not read. CPAP troubleshooting (Table 2) not included. Tirzepatide (Health Canada approved June 2026 for moderate to severe OSA in adults with obesity) is deliberately not covered.",
     },
     {
         id: "sinusitis",
@@ -3871,7 +3874,7 @@ const TOPICS = [
                         "Look for causes | ;; CBC; ferritin and/or transferrin saturation if iron deficiency anemia is suspected ;; Consider: ;;; Glucose ;;; Creatinine ;;; Electrolytes ;;; Calcium ;;; TSH ;;; Celiac ;; **Review drugs**: ;;; **Opioids** ;;; Anticholinergics ;;; CCBs ;;; Iron ;;; Calcium ;;; Antipsychotics ;;; Antidiarrheals ;; Older adult with diarrhea and incontinence → x-ray for overflow",
             "First | ;; Fibre up to 21–38 g/day (soluble 5–10 g), built slowly ;; Fluids 2–3 L ;; Kiwifruit and prunes ;; 150 min/week of activity ;; Don't ignore the urge",
             "Laxatives | **PEG** first after fibre; magnesium oxide or lactulose are alternatives. Stimulants (bisacodyl, senna) short-term or for opioid constipation",
-            "Next steps | PEG and bisacodyl failed → **linaclotide or plecanatide**. ≥ 2 laxative classes failed → **prucalopride** — stop if no benefit at 4 weeks. Give 3–6 months before calling it a failure",
+            "Next steps | PEG and bisacodyl failed → **linaclotide or plecanatide**. ≥ 2 laxative classes failed → **prucalopride** (not studied in men; Canadian indication is adult women; experienced-clinician initiation) — stop if no benefit at 4 weeks. Give 3–6 months before calling it a failure",
             "Dyssynergia | Straining, prolonged sitting, digital assistance — fibre works poorly. Trauma-informed exam; refer for anorectal manometry and pelvic floor therapy",
             "Alarm features → refer | ;; First-degree relative with colorectal cancer ;; Weight loss > 5% in 6–12 months ;; Sudden or progressive change ;; Visible blood ;; Anal mass ;; Iron deficiency anemia ;; Rectal pain ;; Tenesmus ;; **No colonoscopy under 50 without alarm features**",
         ],
@@ -4640,7 +4643,7 @@ const TOPICS = [
         beyondGuideline: "",
         points: [
             "First: Optimize | Non-opioid drugs and non-drug therapy before considering a trial of opioids",
-            "Trial opioids? | Persistent problematic pain despite optimized non-opioid therapy, in a patient with: ;; No current or past substance use disorder ;; No current or past psychiatric disorder ;; No history of opioid overdose ;; Discuss a trial of opioids; stop if no important improvement in pain or function within 2 months",
+            "Trial opioids? | Persistent problematic pain despite optimized non-opioid therapy, in a patient with: ;; No current or past substance use disorder ;; No current psychiatric disorder ;; No history of opioid overdose ;; Discuss a trial of opioids; stop if no important improvement in pain or function within 2 months",
             "Don't | No trial with a history of opioid overdose or active alcohol use disorder. A history of substance use disorder or mental illness: the panel suggests against a trial; favour non-opioids",
             "Dose | Avoid above 80 mg morphine equivalents a day; seldom if ever above 150 mg. Above 150 mg, discuss with a colleague and document the rationale. Does not apply to people already on long-term therapy",
             "Problems | Consider rotating opioid; judge success within 2 months; rotation can run alongside dose reduction",
