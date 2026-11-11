@@ -6237,10 +6237,6 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                             src.doi && src.url && " · ",
                             src.url && React.createElement("a", { href: src.url, target: "_blank", rel: "noreferrer" }, "Primary source")),
                         src.state && React.createElement("p", { className: "state" }, src.state),
-                        React.createElement("p", { className: "review" },
-                            React.createElement("span", null,
-                                "Checked against source: ",
-                                React.createElement("strong", null, formatMonth(src.checked)))),
                         React.createElement("p", null, "Original synthesis, not a reproduction of the guideline. Confirm against the primary document before acting.")))))));
 }
 /* ---------------------------------------------------------------- TOOLS */
@@ -6602,9 +6598,6 @@ function AboutPage({ go }) {
                 React.createElement("span", { className: "tier", "data-tier": "none" }, "No guideline"),
                 " No settled guidance anywhere \u00B7 ",
                 tiers.none || 0)),
-        React.createElement("h2", { className: "sec-title" }, "Review status"),
-        React.createElement("p", null,
-            "Every topic was checked against its primary source in October 2026."),
         React.createElement("h2", { className: "sec-title" }, "Use with judgment"),
         React.createElement("p", null, "CanGuide is a reference, not a substitute for clinical judgment or the full guideline. Doses and thresholds can change \u2014 confirm against the source linked on every topic before acting, especially for children, pregnancy and kidney or liver disease."),
         React.createElement("h2", { className: "sec-title" }, "Privacy"),
