@@ -2770,19 +2770,24 @@ const TOPICS = [
             url: "https://cps.ca/documents/position/group-a-streptococcal",
             doi: "https://doi.org/10.1093/pch/pxab025",
             tier: "national",
-            state: "The CPS guide covers children. There is no national Canadian guideline for adult pharyngitis; adult doses, the McIsaac cut-offs and symptom care come from RxFiles (University of Saskatchewan, July 2026), which draws on CPS 2021, Bugs & Drugs and IDSA.",
+            state: "Children: the CPS practical guide (2021). Adults: the Ontario sore throat decision rule, the McIsaac rule as carried in the MUMS Anti-infective Guidelines for Community-Acquired Infections. There is no national Canadian guideline for adult pharyngitis.",
         },
         excludes: "Peritonsillar abscess; retropharyngeal abscess; epiglottitis; other deep neck infections; recurrent pharyngitis; GAS carriage.",
         changed: "",
         beyondGuideline: "",
         points: [
             "Mostly viral | More than **70%** of children's and **80–90%** of adults' sore throats are viral, and most settle in **4–5 days** (up to 10). Cough and runny nose point to a virus — a positive swab then often means carriage",
-            "Score first | McIsaac (modified Centor): fever > 38 °C; no cough; tender anterior nodes; tonsillar swelling or exudate; age 3–14 **+1**, 15–44 **0**, ≥ 45 **−1**. RxFiles: **≤ 1**: no test, no antibiotic; **2 or more**: rapid test or swab, and treat only if positive. **Children 3–14: the CPS rule takes precedence** — swab at Centor **≥ 3**",
+            "Children (CPS) | ;; **Score first***: For children 3–14, swab at a Centor score of 3 or more. Under 3, GAS pharyngitis and rheumatic fever are rare, so do not test unless a sibling has confirmed GAS and this child is symptomatic ;; **Confirm before treating**: Treat only a positive test. Even at the highest scores, at most about half of presentations are GAS. A negative rapid antigen test in a child needs a backup throat culture ;; **If positive**: Penicillin V or amoxicillin for 10 days (rows below). Children can return to school or daycare after 24 hours of treatment",
+            "Adults (Ontario decision rule) | ;; **Score first***: GAS accounts for only 5–15% of adult sore throats: ;;; **Score 1 or less**: no test, no antibiotic (risk under 10%) ;;; **Score 2–3**: rapid test or throat culture; treat only if positive ;;; **Score 4–5**: test, and consider starting antibiotics on clinical grounds if there is high fever, the patient is clinically unwell, or presentation is early in the course; stop if the test comes back negative ;; **Confirm before treating**: A negative rapid test in an adult needs no backup culture, because the risk of rheumatic fever is low",
             "Don't test | Under 3, unless there's an outbreak or scarlet fever is suspected — GAS is rare. No ASOT for diagnosis. No routine test of cure, and no swabs of well contacts",
             "Testing | Culture of both tonsils and the posterior pharynx is the gold standard. Rapid antigen test: about 1 hour, specificity > 95%, sensitivity **86%** — confirm a negative with culture in high rheumatic fever–burden settings",
             "Treat confirmed GAS | **Penicillin V for 10 days** — no GAS resistance has been documented. Starting within **9 days** of onset still prevents rheumatic fever, so waiting for the culture is safe. Stop empiric antibiotics if the swab is negative",
             "Penicillin allergy | Not severe (e.g. a rash > 72 h after dosing): amoxicillin challenge or de-labelling, or cephalexin. **Anaphylaxis**: macrolide or clindamycin — up to **20%** of isolates resist them, so check local data",
-            "Symptoms and safety-netting | Ibuprofen or acetaminophen; steroids not routinely. Return if worse, still sore after 4–5 days, or with one-sided neck swelling, trouble breathing or severe trouble swallowing (abscess). Higher rheumatic fever risk — northern or Indigenous communities, crowded housing: test any child **≥ 3** with sore throat, and consider empiric treatment at Centor ≥ 3 in select settings if testing isn't available",
+            "Symptoms | Ibuprofen or acetaminophen; steroids not routinely",
+            "Safety-netting | Return if worse, still sore after 4–5 days, or with one-sided neck swelling, trouble breathing or severe trouble swallowing (abscess). Higher rheumatic fever risk (northern or Indigenous communities, crowded housing): test any child **≥ 3** with sore throat, and consider empiric treatment at Centor ≥ 3 in select settings if testing isn't available",
+        ],
+        footnotes: [
+            { mark: "*", text: "McIsaac (modified Centor) score. **+1 each**: temperature > 38 °C; absence of cough; swollen, tender anterior cervical nodes; tonsillar swelling or exudate. **Age**: 3–14 years **+1**; 15–44 years **0**; 45 years and over **−1**. **Risk of GAS by score**: −1 or 0: 1–2.5%; 1: 5–10%; 2: 11–17%; 3: 28–35%; 4 or 5: 51–53%" },
         ],
         meds: [
             {
@@ -2826,7 +2831,7 @@ const TOPICS = [
         related: [],
         conflicts: [],
         provincial: [],
-        editorial: "Children's content from the CPS practical guide (posted 29 Jul 2021; Paediatr Child Health 2021;26(5):319, doi 10.1093/pch/pxab025). Its review or reaffirmation status is unconfirmed. Adult doses, the McIsaac table and risk bands, symptom care and safety-net advice from the RxFiles Acute Pharyngitis chart (July 2026), read in full and free to access. RxFiles lists GAS risk by McIsaac score: ≤ 1 1–10%, 2 11–17%, 3 28–35%, ≥ 4 51–53%. Ron's decision: for children 3–14 the CPS rule (swab at Centor ≥ 3) takes precedence over the RxFiles McIsaac ≥ 2 threshold, which stands for everyone else. Carriage and recurrent pharyngitis stay excluded. CPS does not address return to school, household contacts or tonsillectomy.",
+        editorial: "Children's pathway from the CPS practical guide (posted 29 Jul 2021; Paediatr Child Health 2021;26(5):319, doi 10.1093/pch/pxab025). Its review or reaffirmation status is unconfirmed. Adult pathway from the Ontario sore throat decision rule (the McIsaac rule as carried in the MUMS Anti-infective Guidelines for Community-Acquired Infections, used in Ontario primary care for adults over 15). Children and adults are separate sub-entries, so the two thresholds no longer overlap. The McIsaac criteria and GAS risk by score are in the footnote; both sources print the same table. Medication rows unchanged in the Nov 11, 2026 restructure. Carriage and recurrent pharyngitis stay excluded.",
     },
     /* ---------------- GASTROENTEROLOGY ---------------- */
     {
@@ -2854,13 +2859,13 @@ const TOPICS = [
         beyondGuideline: "",
         points: [
             "Suspect | ALT raised for > 6 months (usually **< 200**) or fatty liver on ultrasound, with obesity, type 2 diabetes, dyslipidemia or metabolic syndrome. Enzymes and ultrasound can both be normal. Alcohol > 14 drinks/wk (men) or > 9 (women): a 6–8-week reduction trial before using the pathway",
-            "Rule out | Review drugs, herbals and supplements — if ALT tracks a drug, stop or change it and recheck in **3–6 months**. **HBsAg and HCV antibody in everyone**. ALT abnormal > 6 months, or advanced fibrosis on FIB-4 or Fibroscan: ANA, anti-smooth muscle Ab, IgG, AMA, IgM, ferritin and transferrin saturation. No routine CT or MRI",
+            "Rule out | ;; Review drugs, herbals and supplements; if ALT tracks a drug, stop or change it and recheck in **3–6 months** ;; **HBsAg and HCV antibody in everyone** ;; ALT abnormal > 6 months, or advanced fibrosis on FIB-4 or Fibroscan: ANA, anti-smooth muscle Ab, IgG, AMA, IgM, ferritin and transferrin saturation ;; No routine CT or MRI",
             "Clues to another cause | ANA > 1:80 and/or smooth muscle Ab > 1:20 with raised IgG → autoimmune hepatitis. Positive AMA → PBC. Ferritin up with transferrin saturation **> 50%** → HFE testing. HBsAg or HCV RNA positive → hepatology",
             "Baseline | ALT, AST, ALP, bilirubin, INR, albumin, CBC with platelets, lipids, A1C, and ultrasound if none in the past year. MASLD can be assumed once other causes are excluded, even with a normal ultrasound",
             "FIB-4 | Age × AST ÷ (platelets × √ALT). Under 65: **< 1.3** low; 1.3–3.25 indeterminate → Fibroscan; **> 3.25** high. Over 65: low is **< 2.0**, indeterminate 2.0–3.25",
             "Fibroscan | **< 10 kPa** excludes advanced fibrosis → stay in primary care, FIB-4 every **3 years**",
             "Refer | To GI or hepatology if: **> 10 kPa**; FIB-4 > 3.25; ultrasound signs of cirrhosis or portal hypertension. While waiting: **ultrasound every 6 months** for HCC, and finish the full liver work-up even if enzymes are normal. On amiodarone, methotrexate or tamoxifen: refer for fibrosis assessment instead. ALT > 200, ascites or pregnancy: refer, and do not order Fibroscan",
-            "Manage | **Lifestyle**: Lose **5–10%** of weight over 6 months; moderate exercise 30 min, 4×/wk; less sugar, fructose and sweet drinks; 2–3 cups of coffee a day may help. **CV risk**: CV risk is **3–5× higher**: treat lipids, BP and diabetes, stop smoking. **Alcohol**: Discourage alcohol; none with advanced fibrosis. **Vaccines**: Hepatitis A and B vaccines. **Bariatric**: Bariatric referral if lifestyle and medical weight loss fail",
+            "Manage | ;; **Lifestyle**: lose **5–10%** of weight over 6 months; moderate exercise 30 min, 4×/wk; less sugar, fructose and sweet drinks; 2–3 cups of coffee a day may help ;; **CV risk**: CV risk is **3–5× higher**; treat lipids, BP and diabetes, stop smoking ;; **Alcohol**: discourage alcohol; none with advanced fibrosis ;; **Vaccines**: hepatitis A and B vaccines ;; **Bariatric**: bariatric referral if lifestyle and medical weight loss fail",
         ],
         meds: [
             {
@@ -2920,10 +2925,10 @@ const TOPICS = [
                 points: [
                     "Suspect | Persistently raised ALT (repeat after > 6 months; usually < 200) or fatty liver on ultrasound, with obesity, type 2 diabetes, dyslipidemia, metabolic syndrome or hypertension. A normal ALT or ultrasound doesn't exclude it",
                     "Alcohol first | Over **2 drinks/day (men) or 1 (women)**: cut down, recheck ALT in **6–8 weeks** before using the pathway",
-                    "Rule out | **ALT > 2× ULN for 6 months**: exclude other causes: drug review (amiodarone, methotrexate, tamoxifen, corticosteroids, isotretinoin, green tea extract); ultrasound if none in a year; HBsAg, anti-HCV; ANA, anti-smooth muscle, immunoglobulins; fasting ferritin and transferrin saturation (> 50% F, > 60% M → HFE); celiac; ceruloplasmin if < 30. **No routine CT or MRI**",
+                    "Rule out | **ALT > 2× ULN for 6 months**: exclude other causes: ;; Drug review (amiodarone, methotrexate, tamoxifen, corticosteroids, isotretinoin, green tea extract) ;; Ultrasound if none in a year ;; HBsAg, anti-HCV ;; ANA, anti-smooth muscle, immunoglobulins ;; Fasting ferritin and transferrin saturation (> 50% F, > 60% M → HFE) ;; Celiac; ceruloplasmin if < 30 ;; **No routine CT or MRI**",
                     "Baseline | ALT, AST, ALP, GGT (AMA if cholestatic); CBC with platelets; A1C, lipids; INR, bilirubin, albumin if cirrhosis is suspected",
                     "FIB-4 | **< 1.30**: manage in primary care, **repeat every 2–3 years**; **≥ 1.30 → refer** to a liver specialist",
-                    "Manage | **Lifestyle**: 150 min/week of activity; **~10% weight loss over 6 months**; **Treat**: treat diabetes, BP and lipids — **statins are safe**; ALT 3 months after starting, stop if it doubles; quit smoking; **Alcohol**: low risk: ≤ 4–5 drinks/week (men), 3–4 (women); none with cirrhosis; **Vaccines**: **hepatitis A and B vaccines**",
+                    "Manage | ;; **Lifestyle**: 150 min/week of activity; **~10% weight loss over 6 months** ;; **Treat**: treat diabetes, BP and lipids; **statins are safe**; ALT 3 months after starting, stop if it doubles; quit smoking ;; **Alcohol**: low risk: ≤ 4–5 drinks/week (men), 3–4 (women); none with cirrhosis ;; **Vaccines**: **hepatitis A and B vaccines**",
                     "Not routine | **Vitamin E**: **Vitamin E 800 IU/day** only for non-diabetic adults with biopsy-proven NASH (PIVENS); not for diabetes, cirrhosis (including NASH or cryptogenic cirrhosis) or NAFLD without a biopsy; long-term cardiovascular and prostate cancer concerns rest on weak evidence. **Omega-3**: insufficient evidence for NAFLD, so not to treat the liver itself; consider for high triglycerides or other comorbidities; possible anticoagulant effect above 3 g/day. **Coffee**: Coffee 2–3 cups may help (inconclusive)",
                 ],
                 meds: [],
@@ -2954,13 +2959,13 @@ const TOPICS = [
         changed: "",
         beyondGuideline: "",
         points: [
-            "Diagnose | Rome IV: abdominal pain **≥ 1 day a week for ≥ 3 months**, linked to defecation or a change in bowel habit. Subtype by stool form — IBS-C, IBS-D, mixed or unclassified — because treatment follows the subtype",
+            "Diagnose | Rome IV: abdominal pain **≥ 1 day a week for ≥ 3 months**, linked to defecation or a change in bowel habit. Subtype by stool form (IBS-C, IBS-D, mixed or unclassified), because treatment follows the subtype",
             "Alarm features | First-degree relative with IBD or colorectal cancer; onset **after 50**; unintended weight loss > 5% over 6–12 months; visible blood; nocturnal symptoms; iron deficiency anemia. Any one → investigate or refer",
-            "Test | **Celiac serology**. CBC and ferritin. **Not** CRP, routine fecal calprotectin, food allergy testing, or lactose or glucose breath tests. Calprotectin only if IBD is suspected: < 50 normal; 50–120 indeterminate, repeat in 4–6 weeks if symptoms persist; **> 120 refer**",
-            "Colonoscopy | New symptoms at **≥ 50** → colonoscopy. Under 50 without alarm features → no. Under 50 with alarm features, CAG suggests against *routine* colonoscopy (conditional) — the Alberta pathway still refers them",
-            "First steps | **Psyllium** (strong) — build slowly to 5–10 g/day of soluble fibre; not wheat bran. **Low FODMAP** for as short a time as possible (about 4 weeks), under a dietitian's guidance. **Not** a gluten-free diet, herbal remedies or acupuncture",
-            "Symptom relief | Peppermint oil, antispasmodics (dicyclomine, hyoscine, pinaverium) and probiotics — each conditional. CBT or hypnotherapy if available (conditional)",
-            "Drugs by subtype | Any subtype: **low-dose TCA** (strong, high certainty); SSRI conditional. IBS-D: eluxadoline; **not** continuous loperamide or cholestyramine. IBS-C: **linaclotide** (strong); osmotic laxatives and prucalopride don't improve overall symptoms",
+            "Test | **Celiac serology**. CBC and ferritin. **Not** CRP, routine fecal calprotectin, food allergy testing, or lactose or glucose breath tests. Calprotectin only if IBD is suspected: ;; **< 50**: normal ;; **50–120**: indeterminate, repeat in 4–6 weeks if symptoms persist ;; **> 120**: refer",
+            "Colonoscopy | New symptoms at **≥ 50** → colonoscopy. Under 50 without alarm features → no. Under 50 with alarm features, CAG suggests against *routine* colonoscopy; the Alberta pathway still refers them",
+            "First steps | **Psyllium**, build slowly to 5–10 g/day of soluble fibre; not wheat bran. **Low FODMAP** for as short a time as possible (about 4 weeks), under a dietitian's guidance. **Not** a gluten-free diet, herbal remedies or acupuncture",
+            "Symptom relief | Peppermint oil, antispasmodics (dicyclomine, hyoscine, pinaverium) and probiotics may help. CBT or hypnotherapy if available",
+            "Drugs by subtype | ;; **Any subtype**: **low-dose TCA**; SSRI ;; **IBS-D**: eluxadoline; **not** continuous loperamide or cholestyramine ;; **IBS-C**: **linaclotide**; osmotic laxatives and prucalopride don't improve overall symptoms",
         ],
         meds: [
             {
@@ -3474,7 +3479,7 @@ const TOPICS = [
             "Severe | **Medium- or high-potency steroid** until improved — never these potencies on sensitive areas. Keep steroids to short, intermittent courses; **no response at 4 weeks** → change the plan",
             "Steroid-sparing | Second line, usable on sensitive skin and widespread disease: **tacrolimus or pimecrolimus**, then crisaborole or roflumilast — each within its approved age",
             "Maintenance | Don't stop at clearance: a **twice-weekly** anti-inflammatory on usual sites prevents flares; tacrolimus twice weekly is approved with **≥ 5 flares a year**. Frequent flares despite maintenance → consider systemic therapy",
-            "Not working or infected | Treat active skin infection first, or alongside antimicrobials. Off target at **6 weeks** (4 for steroids): check adherence, triggers, infection and the diagnosis, then step up — another topical, phototherapy or systemic. Non-steroid topicals are generally avoided in pregnancy and breastfeeding",
+            "Not working or infected | Treat active skin infection first, or alongside antimicrobials. Off target at **6 weeks** (4 for steroids): check adherence, triggers, infection and the diagnosis, then step up: another topical, phototherapy or systemic. Non-steroid topicals are generally avoided in pregnancy and breastfeeding",
         ],
         meds: [
             {
@@ -6326,23 +6331,26 @@ function Fib4() {
                 !diabetes && a > 65 ? " (over 65)" : "")))),
         (age || ast || alt || plt) && (React.createElement("button", { className: "calc-clear", onClick: () => { setAge(""); setAst(""); setAlt(""); setPlt(""); } }, "Clear"))));
 }
-/* McIsaac (modified Centor). Points and risk bands from RxFiles (2026);
-   the children's swab threshold (Centor ≥ 3, no age point) and the
-   high rheumatic-fever-risk rule from CPS (2021). Nothing is stored. */
+/* McIsaac (modified Centor). Points and GAS risk by score as printed by
+   CPS (2021) and the Ontario sore throat decision rule (MUMS Anti-infective
+   Guidelines). Children 3–14: CPS swab rule (Centor ≥ 3, no age point) and
+   the high rheumatic-fever-risk rule. Adults: Ontario decision rule.
+   Nothing is stored. */
 const MCISAAC_ITEMS = [
     ["fever", "Temperature > 38 °C"],
-    ["noCough", "No cough"],
-    ["nodes", "Swollen, tender anterior neck nodes"],
+    ["noCough", "Absence of cough"],
+    ["nodes", "Swollen, tender anterior cervical nodes"],
     ["tonsils", "Tonsillar swelling or exudate"],
 ];
 const MCISAAC_AGES = [
     ["u3", "Under 3", 0], ["child", "3–14", 1], ["adult", "15–44", 0], ["older", "45+", -1],
 ];
 const MCISAAC_BANDS = [
-    { max: 1, risk: "1–10%", act: "Symptom care only. No test and no antibiotic." },
-    { max: 2, risk: "11–17%", act: "Rapid test or throat swab; antibiotic only if positive. Some experts test only from 3 up." },
-    { max: 3, risk: "28–35%", act: "Rapid test or throat swab; antibiotic only if positive." },
-    { max: 99, risk: "51–53%", act: "Rapid test or throat swab — GAS is likely; antibiotic only if positive." },
+    { max: 0, risk: "1–2.5%", act: "No test, no antibiotic (risk under 10%)." },
+    { max: 1, risk: "5–10%", act: "No test, no antibiotic (risk under 10%)." },
+    { max: 2, risk: "11–17%", act: "Rapid test or throat culture; treat only if positive." },
+    { max: 3, risk: "28–35%", act: "Rapid test or throat culture; treat only if positive." },
+    { max: 99, risk: "51–53%", act: "Test, and consider starting antibiotics on clinical grounds if there is high fever, the patient is clinically unwell, or presentation is early in the course; stop if the test comes back negative." },
 ];
 function McIsaac() {
     const [on, setOn] = useState({});
@@ -6356,22 +6364,16 @@ function McIsaac() {
     let act = band && band.act;
     const notes = [];
     if (age === "u3") {
-        act = "GAS is rare under 3. Test only during an outbreak or if scarlet fever is suspected (CPS).";
+        act = "Under 3, GAS pharyngitis and rheumatic fever are rare: do not test unless a sibling has confirmed GAS and this child is symptomatic (CPS).";
     }
     else if (age === "child") {
         act = centor >= 3
-            ? "CPS: swab this child (Centor ≥ 3). Treat only if positive."
-            : "CPS swabs children at Centor ≥ 3 — below that, a swab is a judgement call. Treat only if positive.";
+            ? "CPS: swab this child (Centor score of 3 or more). Treat only a positive test."
+            : "CPS swabs children 3–14 at a Centor score of 3 or more; this child is below that.";
         notes.push(`Centor without the age point: ${centor}. The McIsaac score adds 1 for age 3–14.`);
     }
     if (arf && age === "child") {
         act = "Swab — where rheumatic fever risk is high, CPS tests any child 3 or older with a sore throat. Treat only if positive; if testing isn't available, treat empirically at Centor ≥ 3.";
-    }
-    else if (arf && age && age !== "u3") {
-        if (score <= 1)
-            act = "The score alone says no test, but it is less reliable where rheumatic fever risk is high — consider testing (RxFiles).";
-        else
-            notes.push("High rheumatic fever risk: the score is less reliable here — test more broadly (RxFiles).");
     }
     return (React.createElement("div", { className: "calc" },
         React.createElement("div", { className: "calc-label", style: { marginBottom: 6 } }, "Age"),
@@ -6387,8 +6389,8 @@ function McIsaac() {
             React.createElement("label", { className: "calc-check" },
                 React.createElement("input", { type: "checkbox", checked: arf, onChange: (e) => setArf(e.target.checked) }),
                 React.createElement("span", null,
-                    "High rheumatic fever risk ",
-                    React.createElement("span", { className: "calc-hint" }, "\u2014 remote, northern or Indigenous community; crowded housing")))),
+                    "High rheumatic fever risk (child) ",
+                    React.createElement("span", { className: "calc-hint" }, "\u2014 northern or Indigenous community; crowded housing")))),
         React.createElement("div", { className: "calc-out", "data-band": tone3, "aria-live": "polite" }, score == null ? (React.createElement("span", { className: "calc-wait" }, "Choose an age band")) : (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "calc-score" },
                 React.createElement("span", { className: "calc-num" }, age === "u3" ? "—" : score),
@@ -6397,7 +6399,7 @@ function McIsaac() {
                     band.risk)),
             React.createElement("p", { className: "calc-act" }, act),
             notes.map((x, i) => React.createElement("p", { className: "calc-note", key: i }, x)),
-            React.createElement("p", { className: "calc-src" }, age === "u3" ? "CPS 2021" : age === "child" ? "Swab rule: CPS 2021 · risk bands: RxFiles 2026" : "Score and risk bands: RxFiles 2026")))),
+            React.createElement("p", { className: "calc-src" }, age === "u3" || age === "child" ? "CPS 2021" : "Ontario sore throat decision rule (MUMS)")))),
         (age || arf || Object.values(on).some(Boolean)) && (React.createElement("button", { className: "calc-clear", onClick: () => { setOn({}); setAge(null); setArf(false); } }, "Clear"))));
 }
 /* Cockcroft–Gault: CrCl (mL/min) = (140 − age) × weight (kg) ÷ (72 × SCr in mg/dL),
