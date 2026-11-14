@@ -5161,6 +5161,7 @@ const CALCULATORS_META = {
     phq9: { title: "PHQ-9 (Patient Health Questionnaire-9)", short: "PHQ-9", blurb: "Depression symptom severity" },
     gad7: { title: "GAD-7 (Generalized Anxiety Disorder-7)", short: "GAD-7", blurb: "Anxiety symptom severity" },
     auditc: { title: "AUDIT-C", short: "AUDIT-C", blurb: "Screen for high-risk alcohol use" },
+    amoxkg: { title: "Amoxicillin (child, by weight)", short: "Amoxicillin dose", blurb: "Dose and suspension volume from weight, using each entry's printed regimen" },
 };
 const TOPIC_CALCS = {
     afib: ["chads65", "crcl"],
@@ -5168,7 +5169,10 @@ const TOPIC_CALCS = {
     ckd: ["crcl"],
     "periop-anticoag": ["crcl"],
     masld: ["fib4"],
-    pharyngitis: ["mcisaac"],
+    pharyngitis: ["mcisaac", "amoxkg"],
+    aom: ["amoxkg"],
+    "cap-child": ["amoxkg"],
+    lyme: ["amoxkg"],
     bph: ["ipss"],
     mdd: ["phq9"],
     anxiety: ["gad7"],
@@ -6285,7 +6289,7 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                             React.createElement("a", { href: f.url, target: "_blank", rel: "noopener noreferrer" }, f.label || "Source"))))))))),
                 calcs.length > 0 && (React.createElement("div", { id: "s-calc", className: "sec" }, calcs.map((k, i) => (React.createElement("section", { key: k, style: i ? { marginTop: 22 } : undefined },
                     React.createElement("h2", { className: "sec-title" }, CALCULATORS_META[k].title),
-                    React.createElement(CALC_COMPONENTS[k])))))),),
+                    React.createElement(CALC_COMPONENTS[k], { topicId: t.id })))))),),
             React.createElement("aside", { className: "d-side d-right", "aria-label": "Dosing, tools and source" },
                 React.createElement("div", { className: "d-stick d-scroll" },
                     meds.length > 0 && (React.createElement("section", { className: "sec", id: "s-dosing" },
@@ -6753,7 +6757,69 @@ function Herdoo2() {
             React.createElement("p", { className: "calc-src" }, "Rodger et al., BMJ 2017 \u00B7 Thrombosis Canada duration guide, 2026"))),
         (fits || Object.values(on).some(Boolean)) && React.createElement("button", { className: "calc-clear", onClick: () => { setFits(null); setOn({}); } }, "Clear")));
 }
-const CALC_COMPONENTS = { crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
+/* Amoxicillin, child, by weight. Each regimen is the one printed in the topic's
+   own entry; nothing here adds dosing content. day = mg/kg/day x weight; the
+   printed cap is then applied (daily cap, or per-dose cap). */
+const AMOX_IND = {
+    strep: { name: "Sore throat", topic: "pharyngitis", regs: [
+        { label: "50 mg/kg once daily", rate: [50, 50], n: 1 },
+        { label: "25 mg/kg BID", rate: [50, 50], n: 2 },
+    ], capDay: 1000, capText: "max 1 g/day" },
+    aom: { name: "Ear (AOM)", topic: "aom", regs: [
+        { label: "75–90 mg/kg/day, BID", rate: [75, 90], n: 2 },
+        { label: "45–60 mg/kg/day, TID", rate: [45, 60], n: 3 },
+    ], capText: "no maximum is printed" },
+    cap: { name: "Pneumonia", topic: "cap-child", regs: [
+        { label: "40–90 mg/kg/day, TID", rate: [40, 90], n: 3 },
+    ], capDay: 4000, capText: "max 4000 mg/day" },
+    lyme: { name: "Lyme", topic: "lyme", regs: [
+        { label: "50 mg/kg/day, TID", rate: [50, 50], n: 3 },
+    ], capDose: 500, capText: "max 500 mg per dose" },
+};
+function amoxCalc(ind, regIdx, rate, w) {
+    const I = AMOX_IND[ind], R = I.regs[regIdx];
+    let day = rate * w, dose = day / R.n, capped = null;
+    if (I.capDay && day > I.capDay) { day = I.capDay; dose = day / R.n; capped = "day"; }
+    if (I.capDose && dose > I.capDose) { dose = I.capDose; day = dose * R.n; capped = "dose"; }
+    return { day, dose, n: R.n, capped };
+}
+function AmoxKg({ topicId }) {
+    const start = Object.keys(AMOX_IND).find((k) => AMOX_IND[k].topic === topicId) || null;
+    const [ind, setInd] = useState(start);
+    const [reg, setReg] = useState(0);
+    const [rate, setRate] = useState(start ? AMOX_IND[start].regs[0].rate[0] : null);
+    const [wt, setWt] = useState("");
+    const w = wt === "" || isNaN(+wt) ? null : +wt;
+    const I = ind ? AMOX_IND[ind] : null, R = I ? I.regs[reg] : null;
+    const pick = (k) => { setInd(k); setReg(0); setRate(AMOX_IND[k].regs[0].rate[0]); };
+    const pickReg = (i) => { setReg(+i); setRate(I.regs[+i].rate[0]); };
+    const ranged = R && R.rate[0] !== R.rate[1];
+    const res = I && w > 0 ? amoxCalc(ind, reg, rate, w) : null;
+    const mg = (x) => Math.round(x);
+    const ml = (x, c) => (Math.round((mg(x) / c) * 5 * 10) / 10).toFixed(1);
+    return (React.createElement("div", { className: "calc" },
+        React.createElement("div", { className: "calc-grid" },
+            React.createElement(NumberField, { label: "Weight", unit: "kg", value: wt, onChange: setWt }),
+            React.createElement(Seg, { label: "Indication", value: ind, options: Object.entries(AMOX_IND).map(([k, v]) => [k, v.name]), onChange: pick }),
+            I && I.regs.length > 1 && React.createElement(Seg, { label: "Printed regimen", value: String(reg), options: I.regs.map((r, i) => [String(i), r.label]), onChange: pickReg }),
+            ranged && (React.createElement("label", { className: "calc-field" },
+                React.createElement("span", { className: "calc-label" }, "Dose within the printed range"),
+                React.createElement("input", { type: "range", min: R.rate[0], max: R.rate[1], step: 1, value: rate, onChange: (e) => setRate(+e.target.value), "aria-label": "mg/kg/day", style: { width: "100%" } }),
+                React.createElement("span", { className: "calc-hint" }, rate + " mg/kg/day (range " + R.rate[0] + "–" + R.rate[1] + ")")))),
+        React.createElement("div", { className: "calc-out", "data-band": res && res.capped ? "mid" : "none", "aria-live": "polite" }, !res ? React.createElement("span", { className: "calc-wait" }, I ? "Enter the child's weight" : "Choose an indication and enter the weight") : (React.createElement(React.Fragment, null,
+            React.createElement("div", { className: "calc-score" },
+                React.createElement("span", { className: "calc-num" }, mg(res.dose)),
+                React.createElement("span", { className: "calc-band" }, "mg per dose, " + res.n + (res.n === 1 ? " dose" : " doses") + " a day")),
+            React.createElement("p", { className: "calc-note" }, mg(res.day) + " mg per day (" + (R.rate[0] === R.rate[1] ? R.label : rate + " mg/kg/day, " + (res.n === 2 ? "divided BID" : "divided TID")) + ")"),
+            res.capped && React.createElement("p", { className: "calc-note" }, React.createElement("b", null, "Capped: "), "the printed maximum (" + I.capText + ") is limiting the dose. Uncapped it would be " + mg(rate * w / R.n) + " mg per dose, " + mg(rate * w) + " mg per day."),
+            !res.capped && I.capText && React.createElement("p", { className: "calc-hint" }, "Printed cap: " + I.capText + " — not reached."),
+            React.createElement("ul", { className: "rules" },
+                React.createElement("li", null, React.createElement("b", null, "200 mg/5 mL"), React.createElement("span", null, ml(res.dose, 200) + " mL per dose")),
+                React.createElement("li", null, React.createElement("b", null, "400 mg/5 mL"), React.createElement("span", null, ml(res.dose, 400) + " mL per dose"))),
+            React.createElement("p", { className: "calc-src" }, "Regimens as printed in the Sore throat, Acute otitis media, Pneumonia in children and Lyme disease entries. Volumes are rounded to 0.1 mL from the dose in whole mg.")))),
+        (wt || ind !== start) && React.createElement("button", { className: "calc-clear", onClick: () => { setWt(""); if (start) pick(start); else { setInd(null); setReg(0); } } }, "Clear")));
+}
+const CALC_COMPONENTS = { amoxkg: AmoxKg, crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
 /* ---------------------------------------------------------------- PAGES */
 const formatMonth = (ym) => {
     const m = /^(\d{4})-(\d{2})$/.exec(ym || "");
