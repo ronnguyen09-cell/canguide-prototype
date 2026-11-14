@@ -655,11 +655,20 @@ const TOPICS = [
         points: [
             "Four pillars | **ARNI** (or ACEi/ARB), **beta-blocker**, **MRA** and **SGLT2 inhibitor**: all four unless contraindicated",
             "Titrate fast | To the trial target dose, or maximally tolerated. Aim for all four at target within **3–6 months** of diagnosis. No fixed sequence is endorsed; titrating classes in parallel is acceptable",
-            "ARNI first | Preferred over ACEi/ARB. New HFrEF diagnosed in hospital: ARNI as first-line. Already on ACEi/ARB: switch once stabilized, **before discharge**. 36-hour washout after an ACEi; none needed after an ARB",
-            "Beta-blocker timing | Start as soon as possible after diagnosis, including during the index admission once hemodynamically stable; do not wait for discharge. Stabilize NYHA IV first",
+            "ARNI first | Preferred over ACEi/ARB. 36-hour washout after an ACEi; none needed after an ARB",
+            "Beta-blocker timing | Start as soon as possible after diagnosis. Stabilize NYHA IV first",
             "Add-ons | ;; **Ivabradine:** HR ≥ 70 (Health Canada label: ≥ 77) in sinus rhythm on GDMT ;; **Hydralazine/nitrate:** if ACEi/ARB/ARNI not tolerated, and in Black patients with advanced symptoms ;; **Digoxin:** AF with poor rate control, or persistent symptoms ;; **Vericiguat:** after a heart failure admission in the past 6 months",
             "Monitoring | ;; **MRA:** creatinine and K⁺ **within 1 week** of start or dose change ;; **ACEi/ARB/ARNI:** creatinine rise up to 30% is expected and not a reason to stop ;; **SGLT2i:** eGFR dip up to 15%, resolving over 1–3 months",
             "Before device referral | Optimize and titrate GDMT first, then repeat LVEF **3 months** after reaching target or maximally tolerated doses. Don't unduly delay referral if titration isn't feasible",
+        ],
+        notes: [
+            {
+                title: "In hospital",
+                body: [
+                    "New HFrEF diagnosed in hospital: ARNI as first-line. Already on ACEi/ARB: switch once stabilized, **before discharge**.",
+                    "Beta-blocker: start during the index admission once hemodynamically stable; do not wait for discharge.",
+                ],
+            },
         ],
         meds: [
             {
@@ -1157,7 +1166,7 @@ const TOPICS = [
             "Add-ons | ;; **Type 2 diabetes:** add **finerenone** and a **GLP-1 RA** (semaglutide is the one studied in CKD); KDIGO: use the GLP-1 RA when not at glycemic target despite metformin plus an SGLT2 inhibitor, or when the patient is unable to use them ;; Finerenone criteria (KDIGO): eGFR > 25, normal K⁺, ACR > 3 despite max ACEi/ARB ;; **SBP < 120** if tolerated (KDIGO) ;; **Statin** for everyone ≥ 50, and at 18–49 with CV risk factors",
             "Kidney failure risk | Use the 4-variable **KFRE** when eGFR < 60: ;; **5-year risk ≥ 3–5%** can inform referral ;; **2-year ≥ 10%**: multidisciplinary care ;; **2-year ≥ 40%**: dialysis and transplant planning",
             "Urgent referral | ;; Active urine sediment (red cell or cellular casts) ;; AKI without a readily reversible cause ;; Abrupt, sustained fall in eGFR ;; **eGFR < 15** ;; Nephrotic syndrome (PCR > 300 mg/mmol, albumin < 30 g/L)",
-            "Priority referral | ;; **eGFR < 30** ;; Unexplained persistent **ACR > 30–70 mg/mmol**, whatever the eGFR ;; eGFR decline **> 5 per year** ;; Diabetes with **eGFR < 45 and ACR > 30**",
+            "Priority referral | ;; **eGFR < 30** ;; Unexplained persistent **ACR > 30–70 mg/mmol**, whatever the eGFR (e.g., in absence of diabetes or HTN) ;; eGFR decline **> 5 per year** ;; Diabetes with **eGFR < 45 and ACR > 30**",
         ],
         footnotes: [
             { mark: "†", text: "KDIGO staging. By eGFR (G): G1 ≥ 90; G2 60–89; **G3a 45–59; G3b 30–44**; G4 15–29; G5 < 15. By ACR (A): A1 < 3; **A2 3–29**; **A3 ≥ 30 mg/mmol**." },
@@ -1438,9 +1447,9 @@ const TOPICS = [
         points: [
             "Diagnose | **Acute dysuria**, or **two or more of**: new urgency or frequency, suprapubic pain, hematuria. **Don't treat asymptomatic bacteriuria**. **No urine culture needed** for uncomplicated cystitis",
             "Not uncomplicated | ;; **Fever, rigors, flank pain, nausea or vomiting** ;; Male ;; Pregnant ;; Under 12 ;; Immunocompromised ;; Catheter ;; Neurogenic bladder ;; Stones or kidney dysfunction ;; Gross hematuria or confusion also needs full assessment",
-            "First line | **Nitrofurantoin monohydrate/macrocrystals (BID formulation) 100 mg BID × 5 days**. Ontario *E. coli* resistance: about **3% to nitrofurantoin**, about **20% to TMP-SMX**",
+            "First line | **Nitrofurantoin monohydrate/macrocrystals (BID formulation) 100 mg BID × 5 days**. Ontario E. coli resistance: about **3% to nitrofurantoin**, about **20% to TMP-SMX**",
             "Alternatives | **TMP-SMX DS BID × 3 days**; trimethoprim 200 mg daily × 3 days; **fosfomycin 3 g once** (adults only; inferior to nitrofurantoin in one RCT)",
-            "Course length | **Short courses only** — longer ones work no better and add side effects, resistance and *C. difficile*",
+            "Course length | **Short courses only** — longer ones work no better and add side effects, resistance and C. difficile",
             "Follow up | Check at **72 hours**. No improvement, or upper-tract signs → reassess as a complicated infection (see Not uncomplicated)",
             "Relapse and recurrence | Symptoms back **within 4 weeks** of finishing = relapse. **≥ 2 in 6 months or ≥ 3 in 12 months** = recurrent — beyond empiric treatment, needs workup",
         ],
@@ -1636,7 +1645,7 @@ const TOPICS = [
             year: 2026,
             edition: null,
             checked: "2026-10",
-            citation: "Canadian Immunization Guide, Part 1: Recommended immunization schedules (partial update June 2026)",
+            citation: "Canadian Immunization Guide, Part 1: Recommended immunization schedules (partial update June 2026); influenza and COVID-19 from the CIG Part 4 chapters and the NACI guidance on COVID-19 vaccines starting fall 2026",
             url: "https://www.canada.ca/en/public-health/services/publications/healthy-living/canadian-immunization-guide-part-1-key-immunization-information/page-13-recommended-immunization-schedules.html",
             tier: "national",
             state: "Living chapter, partly updated June 2026. PHAC flags several NACI statements as not yet folded in, including May 2026 meningococcal guidance under age 2. Provinces set what is publicly funded and when.",
@@ -1644,12 +1653,12 @@ const TOPICS = [
         changed: "Adult pneumococcal now one dose of Pneu-C-20 or Pneu-C-21 at ≥ 65 regardless of prior vaccines (Nov 2024); RSV vaccine for all adults ≥ 75 and maternal RSVpreF from 28 weeks; HPV is a single dose to age 20; Pneu-C-15 or Pneu-C-20 replaced Pneu-C-13 in infants; Men-C-ACYW replaces Men-C-C at 12–23 months (May 2026).",
         beyondGuideline: "",
         points: [
-            "Pregnancy | ;; **Tdap every pregnancy**, ideally **27–32 wk**, whatever the interval since the last dose ;; **RSVpreF may be considered at 28–36 wk**, in discussion with the care provider, before or during RSV season, **≥ 2 wk before birth**; not repeated in a later pregnancy: protect that baby with a monoclonal antibody instead",
-            "Infants | ;; **2, 4, 6 mo**: DTaP-IPV-Hib (or the hexavalent with hep B) at each visit; 4th dose at **18 mo** ;; Pneumococcal conjugate at 2 and 4 mo; booster at **12–15 mo** ;; Rotavirus: first dose **≥ 6 wk and before 15 wk**; series done **before 8 mo**; no catch-up past that ;; **RSV**: one dose of **nirsevimab or clesrovimab** for infants **< 8 mo** entering or in their first season, if the mother had no RSVpreF or delivered < 2 wk after it ;; High-risk infants get it **even if the mother was vaccinated** ;; **Influenza** yearly from **6 mo**; under 9 and first time: 2 doses 4 weeks apart",
-            "Toddlers | ;; **12 mo**: **MMR** ;; **12–23 mo**: **Men-C-ACYW** once (replaces Men-C-C; NACI May 2026) ;; **12–15 mo**: **varicella** ;; **From 18 mo**, no later than school entry: second MMR and varicella; MMRV at 4–6 y is an option",
-            "School age to 17 | ;; **4–6 y**: **Tdap-IPV** booster ;; **Around 12 y**: Men-C-ACYW; hep B if no infant series; **HPV: one dose of 9vHPV, ages 9–20** (2 doses if immunocompromised) ;; Tdap again 10 years after the preschool booster",
-            "Adults | ;; **Tdap once** in adulthood, then Td q10y ;; **Recombinant zoster**: 2 doses, 2–6 mo apart, at **≥ 50**; or ≥ 18 if immunocompromised, finished ≥ 14 d before immunosuppression ;; MMR: born **≥ 1970** gets 1 dose ;; Varicella: 2 doses if < 50 without immunity ;; HPV: 2 doses at 21–26",
-            "Older adults | ;; **One pneumococcal conjugate** dose (Pneu-C-20 or Pneu-C-21) at **≥ 65**, **regardless of past pneumococcal vaccines**, ≥ 1 y after the last one; same for < 65 at increased risk ;; **RSV**: single dose for **all ≥ 75**, and 65–74 at increased risk; no RSV booster",
+            "Pregnancy | ;; **Tdap every pregnancy**, ideally **27–32 wk**, whatever the interval since the last dose ;; **Influenza** every season, at any stage of pregnancy, with an inactivated vaccine (the live nasal vaccine is not for pregnancy) ;; **COVID-19**: pregnancy is an increased-risk group, so vaccination is **recommended**, one dose a year ;; **RSVpreF may be considered at 28–36 wk**, in discussion with the care provider, before or during RSV season, **≥ 2 wk before birth**; not repeated in a later pregnancy: protect that baby with a monoclonal antibody instead",
+            "Infants | ;; **2, 4, 6 mo**: DTaP-IPV-Hib (or the hexavalent with hep B) at each visit; 4th dose at **18 mo** ;; Pneumococcal conjugate at 2 and 4 mo; booster at **12–15 mo** ;; Rotavirus: first dose **≥ 6 wk and before 15 wk**; series done **before 8 mo**; no catch-up past that ;; **RSV**: one dose of **nirsevimab or clesrovimab** for infants **< 8 mo** entering or in their first season, if the mother had no RSVpreF or delivered < 2 wk after it ;; High-risk infants get it **even if the mother was vaccinated** ;; **Influenza** yearly from **6 mo**; under 9 and first time: 2 doses 4 weeks apart ;; **COVID-19** from **6 mo** is recommended for those at **increased risk** (underlying medical conditions, long-term care or congregate living, First Nations, Inuit or Métis communities); others may be offered it. First series under 5: 2 doses of Spikevax 8 wk apart (3 doses, 4–8 wk apart, if moderately to severely immunocompromised)",
+            "Toddlers | ;; **12 mo**: **MMR** ;; **12–23 mo**: **Men-C-ACYW** once (replaces Men-C-C; NACI May 2026) ;; **12–15 mo**: **varicella** ;; **From 18 mo**, no later than school entry: second MMR and varicella; MMRV at 4–6 y is an option ;; **Influenza** yearly (1 dose once vaccinated before); **COVID-19** as for infants: recommended at increased risk, optional for others",
+            "School age to 17 | ;; **4–6 y**: **Tdap-IPV** booster ;; **Around 12 y**: Men-C-ACYW; hep B if no infant series; **HPV: one dose of 9vHPV, ages 9–20** (2 doses if immunocompromised) ;; Tdap again 10 years after the preschool booster ;; **Influenza** yearly (the nasal live vaccine is an option from 2 y, with eligibility limits) ;; **COVID-19**: recommended at increased risk, optional for others; **1 dose** a year (2 doses for the first series if moderately to severely immunocompromised)",
+            "Adults | ;; **Tdap once** in adulthood, then Td q10y ;; **Recombinant zoster**: 2 doses, 2–6 mo apart, at **≥ 50**; or ≥ 18 if immunocompromised, finished ≥ 14 d before immunosuppression ;; MMR: born **≥ 1970** gets 1 dose ;; Varicella: 2 doses if < 50 without immunity ;; HPV: 2 doses at 21–26 ;; **Influenza** yearly, 1 dose ;; **COVID-19**: **1 dose a year** recommended at increased risk (underlying medical conditions, pregnancy, First Nations, Inuit or Métis communities, health care workers and other care providers, congregate living); others may be offered it. Moderately to severely immunocompromised: a **second yearly dose**, ≥ 3 mo after the first",
+            "Older adults | ;; **One pneumococcal conjugate** dose (Pneu-C-20 or Pneu-C-21) at **≥ 65**, **regardless of past pneumococcal vaccines**, ≥ 1 y after the last one; same for < 65 at increased risk ;; **RSV**: single dose for **all ≥ 75**, and 65–74 at increased risk; no RSV booster ;; **Influenza** yearly: **high-dose or adjuvanted** vaccine preferred at **≥ 65** (any age-appropriate vaccine if neither is available) ;; **COVID-19**: **all ≥ 65**, one dose a year; a **second dose ≥ 3 mo later** is strongly recommended at **≥ 80**, in long-term care or congregate living, and at 65–79 with underlying conditions; may be offered to other 65–79",
         ],
         meds: [],
         calculators: [],
@@ -1691,7 +1700,7 @@ const TOPICS = [
         journal: [
             { j: "CMAJ", year: 2026, title: "Reducing distress during vaccine injections: 2026 guideline update", note: "Use a **fast injection** at all ages; infants ≤ 12 months: **breastfeed**, bottle, a sweet liquid or a pacifier; offer **topical anesthetic** at the injection site at all ages; use distraction — toys and singing for infants, music, digital media or games for older children and adults", url: "https://doi.org/10.1503/cmaj.260123" },
         ],
-        editorial: "Schedule points come from the CIG schedule chapter; adult pneumococcal from the Nov 2024 NACI summary and RSV from the CIG RSV chapter (May 2026), because the schedule chapter has not absorbed either. Influenza in pregnancy and COVID-19 are deliberately absent — neither was in the fetched text. The Ontario childhood note is from the Spring 2025 publicly funded schedule as reposted by a health unit; check it against the current Ministry edition. Catch-up schedules would justify their own topic. Other provinces still needed — zoster and RSV funding differ most. Restructured Nov 3, 2026, with no clinical content changed: seven points became six on one axis, life stage in order (pregnancy, infants, toddlers, school age to 17, adults, older adults); ages moved from point titles into the points as leads, infant RSV folded into Infants, and influenza moved to Infants where it starts (6 mo). The six-point life-stage structure is a settled decision; future audits should not restore age-band titles or split infant RSV back into a product point.",
+        editorial: "Schedule points come from the CIG schedule chapter; adult pneumococcal from the Nov 2024 NACI summary and RSV from the CIG RSV chapter (May 2026), because the schedule chapter has not absorbed either. Influenza (CIG Part 4 influenza chapter, partial update Aug 2026; NACI 2025–2026 statement) and COVID-19 (CIG Part 4 COVID-19 chapter, Oct 2026; NACI summary of June 2026, guidance starting fall 2026) added in the V259 round, inside the existing life-stage points; COVID-19 is risk-based, not universal, and only the infant influenza line predates this. The Ontario childhood note is from the Spring 2025 publicly funded schedule as reposted by a health unit; check it against the current Ministry edition. Catch-up schedules would justify their own topic. Other provinces still needed — zoster and RSV funding differ most. Restructured Nov 3, 2026, with no clinical content changed: seven points became six on one axis, life stage in order (pregnancy, infants, toddlers, school age to 17, adults, older adults); ages moved from point titles into the points as leads, infant RSV folded into Infants, and influenza moved to Infants where it starts (6 mo). The six-point life-stage structure is a settled decision; future audits should not restore age-band titles or split infant RSV back into a product point.",
     },
     {
         id: "cervical-screen",
@@ -2120,9 +2129,7 @@ const TOPICS = [
                 adjustment: "First-line adjunct, licensed in Canada for this use. Dose range from the product monograph. Max 1.25 mg with CrCl < 60 or moderate–severe hepatic impairment.",
             },
         ],
-        calculators: [
-            { title: "PHQ-9", url: "https://www.mdcalc.com/calc/1725/phq-9-patient-health-questionnaire-9" },
-        ],
+        calculators: [],
         handout: null,
         related: ["smoking", "perinatal-mh"],
         conflicts: [
@@ -2336,9 +2343,7 @@ const TOPICS = [
                 adjustment: "Second line. Useful to bridge the first weeks of an SSRI or for acute agitation. Avoid as long-term monotherapy.",
             },
         ],
-        calculators: [
-            { title: "GAD-7", url: "https://www.mdcalc.com/calc/1727/gad-7-general-anxiety-disorder-7" },
-        ],
+        calculators: [],
         handout: null,
         related: ["mdd", "aud"],
         conflicts: [],
@@ -2473,9 +2478,7 @@ const TOPICS = [
                 adjustment: "Parenteral 200–300 mg daily for at least 5 days in hospital if Wernicke's is suspected, liver disease is decompensated or nutrition is poor, then oral.",
             },
         ],
-        calculators: [
-            { title: "AUDIT-C", url: "https://www.mdcalc.com/calc/2021/audit-c-alcohol-use" },
-        ],
+        calculators: [],
         handout: { title: "Canada's Guidance on Alcohol and Health", url: "https://www.ccsa.ca/canadas-guidance-alcohol-and-health" },
         related: ["oud", "mdd", "anxiety", "smoking"],
         conflicts: [],
@@ -2744,7 +2747,7 @@ const TOPICS = [
             state: "Still SOGC's current contraception guideline, published in four parts from 2015 to 2017. No newer SOGC contraception guideline found.",
         },
         changed: "",
-        beyondGuideline: "No. 329 predates the etonogestrel implant's Canadian approval (May 2020); implant content rests on SOGC's 2025 position statement on contraceptive implant removal.",
+        beyondGuideline: "",
         points: [
             "Most effective | **IUDs work as well as permanent contraception**. Offer IUDs **first-line** to nulliparous and multiparous women alike — nulliparity doesn't raise expulsion risk",
             "IUD insertion | Any day of the cycle if **reasonably certain she isn't pregnant**. Consider inserting **immediately after an abortion** rather than waiting. **Within 48 h postpartum**: better continuation but more expulsion. Higher perforation risk if breastfeeding",
@@ -2797,13 +2800,13 @@ const TOPICS = [
         beyondGuideline: "",
         points: [
             "Mostly viral | More than **70%** of children's and **80–90%** of adults' sore throats are viral, and most settle in **4–5 days** (up to 10). Cough and runny nose point to a virus — a positive swab then often means carriage",
-            ";; **Children (CPS)** ;;; **Score first***: For children 3–14, swab at a Centor score of 3 or more. Under 3, GAS pharyngitis and rheumatic fever are rare, so do not test unless a sibling has confirmed GAS and this child is symptomatic ;;; **Confirm before treating**: Treat only a positive test. Even at the highest scores, at most about half of presentations are GAS. A negative rapid antigen test in a child needs a backup throat culture ;;; **If positive**: Penicillin V or amoxicillin for 10 days (rows below). Children can return to school or daycare after 24 hours of treatment ;; **Adults (Ontario decision rule)** ;;; **Score first***: GAS accounts for only 5–15% of adult sore throats: ;;; **Score 1 or less**: no test, no antibiotic (risk under 10%) ;;; **Score 2–3**: rapid test or throat culture; treat only if positive ;;; **Score 4–5**: test, and consider starting antibiotics on clinical grounds if there is high fever, the patient is clinically unwell, or presentation is early in the course; stop if the test comes back negative ;;; **Confirm before treating**: A negative rapid test in an adult needs no backup culture, because the risk of rheumatic fever is low",
-            "Don't test | Under 3, unless there's an outbreak or scarlet fever is suspected — GAS is rare. No ASOT for diagnosis. No routine test of cure, and no swabs of well contacts",
-            "Testing | Culture of both tonsils and the posterior pharynx is the gold standard. Rapid antigen test: about 1 hour, specificity > 95%, sensitivity **86%** — confirm a negative with culture in high rheumatic fever–burden settings",
+            ";; **Children (CPS)** ;;; **Score first***: For children 3–14, swab at a McIsaac score of 3 or more. Under 3, GAS pharyngitis and rheumatic fever are rare, so do not test unless a sibling has confirmed GAS and this child is symptomatic ;;; **Confirm before treating**: Treat only a positive test. Even at the highest scores, at most about half of presentations are GAS. A negative rapid antigen test in a child needs a backup throat culture ;;; **If positive**: Penicillin V or amoxicillin for 10 days (rows below). Children can return to school or daycare after 24 hours of treatment ;; **Adults (Ontario decision rule)** ;;; **Score first***: GAS accounts for only 5–15% of adult sore throats: ;;; **Score 1 or less**: no test, no antibiotic (risk under 10%) ;;; **Score 2–3**: rapid test or throat culture; treat only if positive ;;; **Score 4–5**: test, and consider starting antibiotics on clinical grounds if there is high fever, the patient is clinically unwell, or presentation is early in the course; stop if the test comes back negative ;;; **Confirm before treating**: A negative rapid test in an adult needs no backup culture, because the risk of rheumatic fever is low",
+            "Don't test | Under 3, unless a sibling has confirmed GAS and this child is symptomatic — GAS is rare. No ASOT for diagnosis. No routine test of cure, and no swabs of well contacts",
+            "Testing | Culture of both tonsils and the posterior pharynx is the gold standard. Rapid antigen test: about 1 hour, specificity > 95%, sensitivity **86%** — confirm a negative with culture in children and adolescents, and in high rheumatic fever–burden settings",
             "Treat confirmed GAS | **Penicillin V for 10 days** — no GAS resistance has been documented. Starting within **9 days** of onset still prevents rheumatic fever, so waiting for the culture is safe. Stop empiric antibiotics if the swab is negative",
             "Penicillin allergy | Not severe (e.g. a rash > 72 h after dosing): amoxicillin challenge or de-labelling, or cephalexin. **Anaphylaxis**: macrolide or clindamycin — up to **20%** of isolates resist them, so check local data",
             "Symptoms | Ibuprofen or acetaminophen; steroids not routinely",
-            "Safety-netting | Return if worse, still sore after 4–5 days, or with one-sided neck swelling, trouble breathing or severe trouble swallowing (abscess). Higher rheumatic fever risk (northern or Indigenous communities, crowded housing): test any child **≥ 3** with sore throat, and consider empiric treatment at Centor ≥ 3 in select settings if testing isn't available",
+            "Safety-netting | Return if worse, still sore after 4–5 days, or with one-sided neck swelling, trouble breathing or severe trouble swallowing (abscess). Higher rheumatic fever risk (northern or Indigenous communities, crowded housing): test any child **≥ 3** with sore throat, and consider empiric treatment at McIsaac ≥ 3 in select settings if testing isn't available",
         ],
         footnotes: [
             { mark: "*", text: "McIsaac (modified Centor) score. **+1 each**: temperature > 38 °C; absence of cough; swollen, tender anterior cervical nodes; tonsillar swelling or exudate. **Age**: 3–14 years **+1**; 15–44 years **0**; 45 years and over **−1**. **Risk of GAS by score**: −1 or 0: 1–2.5%; 1: 5–10%; 2: 11–17%; 3: 28–35%; 4 or 5: 51–53%" },
@@ -2903,9 +2906,7 @@ const TOPICS = [
                 adjustment: "Type 2 diabetes with MASH and F2–F3 fibrosis only: Diabetes Canada suggests preferential consideration of pioglitazone or subcutaneous semaglutide. Not part of the Kingston pathway.",
             },
         ],
-        calculators: [
-            { title: "FIB-4 index", url: "https://www.mdcalc.com/calc/2200/fib-4-index-liver-fibrosis" },
-        ],
+        calculators: [],
         handout: null,
         related: ["t2dm", "obesity", "lipids", "aud"],
         conflicts: [
@@ -2979,7 +2980,7 @@ const TOPICS = [
             "Diagnose | Rome IV: abdominal pain **≥ 1 day a week for ≥ 3 months**, linked to defecation or a change in bowel habit. Subtype by stool form (IBS-C, IBS-D, mixed or unclassified), because treatment follows the subtype",
             "Alarm features | First-degree relative with IBD or colorectal cancer; onset **after 50**; unintended weight loss > 5% over 6–12 months; visible blood; nocturnal symptoms; iron deficiency anemia. Any one → investigate or refer",
             "Test | **Celiac serology**. CBC and ferritin. **Not** CRP, routine fecal calprotectin, food allergy testing, or lactose or glucose breath tests. Calprotectin only if IBD is suspected: ;; **< 50**: normal ;; **50–120**: indeterminate, repeat in 4–6 weeks if symptoms persist ;; **> 120**: refer",
-            "Colonoscopy | New symptoms at **≥ 50** → colonoscopy. Under 50 without alarm features → no. Under 50 with alarm features, CAG suggests against *routine* colonoscopy; the Alberta pathway still refers them",
+            "Colonoscopy | New symptoms at **≥ 50** → colonoscopy. Under 50 without alarm features → no. Under 50 with alarm features, CAG suggests against routine colonoscopy; the Alberta pathway still refers them",
             "First steps | **Psyllium**, build slowly to 5–10 g/day of soluble fibre; not wheat bran. **Low FODMAP** for as short a time as possible (about 4 weeks), under a dietitian's guidance. **Not** a gluten-free diet, herbal remedies or acupuncture",
             "Symptom relief | Peppermint oil, antispasmodics (dicyclomine, hyoscine, pinaverium) and probiotics may help. CBT or hypnotherapy if available",
             "Drugs by subtype | ;; **Any subtype**: **low-dose TCA**; SSRI ;; **IBS-D**: eluxadoline; **not** continuous loperamide or cholestyramine ;; **IBS-C**: **linaclotide**; osmotic laxatives and prucalopride don't improve overall symptoms",
@@ -3252,17 +3253,19 @@ const TOPICS = [
             {
                 name: "Cephalexin",
                 dose: "500–1000 mg PO q6h; 5 days",
-                adjustment: "First line for non-purulent cellulitis and purulent cellulitis without MRSA risk factors. Renal dose adjustment needed.",
+                adjustment: "First line for non-purulent cellulitis and purulent cellulitis without MRSA risk factors.",
             },
             {
                 name: "Cefadroxil",
                 dose: "500–1000 mg PO q12h; 5 days",
-                adjustment: "Twice-daily alternative to cephalexin. Renal dose adjustment needed.",
+                adjustment: "Twice-daily alternative to cephalexin. Renal (500 mg maintenance dose): CrCl 25–50 mL/min q12h; 10–25 q24h; < 10 q36h. Above 50: usual dosing.",
+                src: "Cefadroxil product monograph (Apotex, 2019), dosage in impaired renal function",
             },
             {
                 name: "Cefuroxime",
                 dose: "500 mg PO q12h",
-                adjustment: "Immediate beta-lactam allergy. Renal dose adjustment needed.",
+                adjustment: "Immediate beta-lactam allergy. Renal: CrCl ≥ 30 mL/min no change; 10–29: usual dose q24h; < 10: usual dose q48h; hemodialysis: one extra dose after each session.",
+                src: "Apo-Cefuroxime product monograph (Apotex, 2023), section 4.2",
             },
             {
                 name: "Clindamycin",
@@ -3277,12 +3280,14 @@ const TOPICS = [
             {
                 name: "Trimethoprim-sulfamethoxazole",
                 dose: "1–2 DS tablets (800/160 mg each) PO q12h",
-                adjustment: "Purulent cellulitis with MRSA risk factors. Renal dose adjustment needed. Poor strep coverage — consider adding a beta-lactam.",
+                adjustment: "Purulent cellulitis with MRSA risk factors. Renal: CrCl > 30 mL/min usual dose; 15–30: half the usual dose; < 15: not recommended. Poor strep coverage — consider adding a beta-lactam.",
+                src: "Sulfatrim product monograph (AA Pharma, 2023)",
             },
             {
                 name: "Cefazolin IV",
                 dose: "2 g IV q8h; outpatient: probenecid 1 g PO, then cefazolin 2 g IV, q24h",
-                adjustment: "Moderate infection — systemic toxicity without sepsis, or failed oral therapy. 5 days if improving within 72 h, otherwise 7–10. Renal dose adjustment needed.",
+                adjustment: "Moderate infection — systemic toxicity without sepsis, or failed oral therapy. 5 days if improving within 72 h, otherwise 7–10. Renal (monograph schedule after a full first dose): CrCl 35–54 mL/min 250 mg–1 g q8–12h; 11–34: 125–500 mg q12h; ≤ 10: 125–500 mg q18h. The monograph gives no renal dose for 2 g or for the probenecid regimen.",
+                src: "Cefazolin for Injection product monograph (Teva Canada, 2024), section 4.2",
             },
         ],
         calculators: [],
@@ -3751,10 +3756,10 @@ const TOPICS = [
         reviewedBy: "2026-11-06",
         source: {
             org: "BC Guidelines (GPAC)",
-            year: 2023,
-            edition: 2023,
+            year: 2021,
+            edition: 2021,
             checked: "2026-11",
-            citation: "Obstructive Sleep Apnea: Assessment and Management in Adults, BC Guidelines, effective 19 September 2023",
+            citation: "Obstructive Sleep Apnea: Assessment and Management in Adults, BC Guidelines, 2021 edition",
             url: "https://www2.gov.bc.ca/gov/content/health/practitioner-professional-resources/bc-guidelines/sleep-apnea",
             doi: null,
             province: "BC",
@@ -4374,8 +4379,8 @@ const TOPICS = [
             "First line | **Amoxicillin 500 mg–1 g TID**",
             "Allergy | IgE-mediated penicillin allergy → **cefuroxime**. No β-lactam possible → levofloxacin or doxycycline (pneumococcal resistance to doxycycline rising)",
             "Duration | **5 days** usually — longer with instability or bacteremia",
-            "Recovery | Fever settles in about 3 days; cough and breathlessness can take 4 weeks, fatigue months — no more antibiotics for a lingering cough",
-            "Follow-up x-ray | Not routine; at about 8 weeks for smokers or others at risk of lung cancer",
+            "Recovery | Fever settles in about 3 days; cough and breathlessness can take 4 weeks, fatigue months — no more antibiotics for a lingering cough (INESSS 2017)",
+            "Follow-up x-ray | Not routine; at about 8 weeks for smokers or others at risk of lung cancer (INESSS 2017)",
         ],
         notes: [
             {
@@ -5123,6 +5128,9 @@ const CALCULATORS_META = {
     fib4: { title: "FIB-4", short: "FIB-4", blurb: "Liver fibrosis risk in MASLD" },
     mcisaac: { title: "McIsaac (modified Centor) score", short: "McIsaac", blurb: "Who to test for strep throat" },
     ipss: { title: "IPSS (International Prostate Symptom Score)", short: "IPSS", blurb: "Lower urinary tract symptom severity in BPH" },
+    phq9: { title: "PHQ-9 (Patient Health Questionnaire-9)", short: "PHQ-9", blurb: "Depression symptom severity" },
+    gad7: { title: "GAD-7 (Generalized Anxiety Disorder-7)", short: "GAD-7", blurb: "Anxiety symptom severity" },
+    auditc: { title: "AUDIT-C", short: "AUDIT-C", blurb: "Screen for high-risk alcohol use" },
 };
 const TOPIC_CALCS = {
     afib: ["chads65", "crcl"],
@@ -5132,6 +5140,9 @@ const TOPIC_CALCS = {
     masld: ["fib4"],
     pharyngitis: ["mcisaac"],
     bph: ["ipss"],
+    mdd: ["phq9"],
+    anxiety: ["gad7"],
+    aud: ["auditc"],
 };
 Object.keys(TOPIC_CALCS).forEach((id) => { if (!TOPIC_BY_ID[id]) delete TOPIC_CALCS[id]; });
 /* Routes */
@@ -6514,6 +6525,87 @@ function Ipss() {
             React.createElement("p", { className: "calc-act ipss-bother-out", "aria-live": "polite" }, bother == null ? "0 delighted … 6 terrible" : `Bother score: ${bother} (${IPSS_BOTHER[bother]})`)),
         (done > 0 || bother != null) && (React.createElement("button", { className: "calc-clear", onClick: () => { setAns({}); setBother(null); } }, "Clear"))));
 }
+/* PHQ-9, GAD-7 and AUDIT-C: published items and scoring, shown for the reader
+   to tick and total. Nothing is stored. Free to use. */
+const PHQ_OPTS = ["Not at all", "Several days", "More than half the days", "Nearly every day"];
+const QUESTIONNAIRES = {
+    phq9: {
+        intro: "Over the last 2 weeks, how often have you been bothered by any of the following problems? Each item 0 (not at all) to 3 (nearly every day).",
+        opts: PHQ_OPTS,
+        items: [
+            "Little interest or pleasure in doing things",
+            "Feeling down, depressed, or hopeless",
+            "Trouble falling or staying asleep, or sleeping too much",
+            "Feeling tired or having little energy",
+            "Poor appetite or overeating",
+            "Feeling bad about yourself — or that you are a failure or have let yourself or your family down",
+            "Trouble concentrating on things, such as reading the newspaper or watching television",
+            "Moving or speaking so slowly that other people could have noticed? Or the opposite — being so fidgety or restless that you have been moving around a lot more than usual",
+            "Thoughts that you would be better off dead, or of hurting yourself in some way",
+        ],
+        result: (t) => (t <= 4 ? ["low", "Minimal (0 to 4)"] : t <= 9 ? ["low", "Mild (5 to 9)"] : t <= 14 ? ["mid", "Moderate (10 to 14)"] : t <= 19 ? ["high", "Moderately severe (15 to 19)"] : ["high", "Severe (20 to 27)"]),
+        src: "PHQ-9 total 0 to 27. A severity measure, not a diagnosis.",
+        notes: (ans) => (ans[8] > 0 ? ["Item 9 (thoughts of death or self-harm) is above 0: it needs clinical attention whatever the total."] : []),
+    },
+    gad7: {
+        intro: "Over the last 2 weeks, how often have you been bothered by the following problems? Each item 0 (not at all) to 3 (nearly every day).",
+        opts: PHQ_OPTS,
+        items: [
+            "Feeling nervous, anxious, or on edge",
+            "Not being able to stop or control worrying",
+            "Worrying too much about different things",
+            "Trouble relaxing",
+            "Being so restless that it is hard to sit still",
+            "Becoming easily annoyed or irritable",
+            "Feeling afraid, as if something awful might happen",
+        ],
+        result: (t) => (t <= 4 ? ["low", "Minimal (0 to 4)"] : t <= 9 ? ["low", "Mild (5 to 9)"] : t <= 14 ? ["mid", "Moderate (10 to 14)"] : ["high", "Severe (15 to 21)"]),
+        src: "GAD-7 total 0 to 21. A severity measure, not a diagnosis.",
+        notes: () => [],
+    },
+    auditc: {
+        intro: "Each item is scored 0 to 4, in the order the answers are listed.",
+        sex: true,
+        items: [
+            ["How often do you have a drink containing alcohol?", ["Never", "Monthly or less", "2 to 4 times a month", "2 to 3 times a week", "4 or more times a week"]],
+            ["How many standard drinks containing alcohol do you have on a typical day?", ["1 or 2", "3 or 4", "5 or 6", "7 to 9", "10 or more"]],
+            ["How often do you have six or more drinks on one occasion?", ["Never", "Less than monthly", "Monthly", "Weekly", "Daily or almost daily"]],
+        ],
+        result: (t, sex) => (sex == null ? ["none", "Total " + t + " of 12. Positive screen: 4 or more in men, 3 or more in women (choose sex)"] : t >= (sex === "m" ? 4 : 3) ? ["mid", "Positive screen (" + (sex === "m" ? "4 or more in men" : "3 or more in women") + ")"] : ["low", "Negative screen (" + (sex === "m" ? "under 4 in men" : "under 3 in women") + ")"]),
+        src: "AUDIT-C total 0 to 12. Positive screen: 4 or more in men, 3 or more in women.",
+        notes: () => [],
+    },
+};
+function Questionnaire({ qk }) {
+    const cfg = QUESTIONNAIRES[qk];
+    const [ans, setAns] = useState({});
+    const [sex, setSex] = useState(null);
+    const n = cfg.items.length;
+    const done = cfg.items.filter((_, i) => ans[i] != null).length;
+    const total = done === n ? cfg.items.reduce((sum, _, i) => sum + ans[i], 0) : null;
+    const res = total == null ? null : cfg.result(total, sex);
+    const max = cfg.sex ? 12 : n * 3;
+    return (React.createElement("div", { className: "calc" },
+        React.createElement("p", { className: "calc-hint", style: { margin: "0 0 12px" } }, cfg.intro),
+        cfg.items.map((it, i) => {
+            const text = cfg.sex ? it[0] : it;
+            const opts = cfg.sex ? it[1] : cfg.opts;
+            return (React.createElement("div", { key: i, style: { marginBottom: 12 } },
+                React.createElement("div", { className: "calc-label", style: { marginBottom: 6 } }, (i + 1) + ". " + text),
+                React.createElement("div", { className: "seg", role: "group", "aria-label": text, style: { gridTemplateColumns: opts.length === 4 ? "repeat(2, minmax(0, 1fr))" : "minmax(0, 1fr)" } }, opts.map((o, v) => (React.createElement("button", { key: v, "aria-pressed": ans[i] === v ? "true" : "false", onClick: () => setAns({ ...ans, [i]: v }) }, o + " (" + v + ")"))))));
+        }),
+        cfg.sex && React.createElement(Seg, { label: "Sex", value: sex, options: [["f", "Female"], ["m", "Male"]], onChange: setSex }),
+        React.createElement("div", { className: "calc-out", "data-band": res ? res[0] : "none", "aria-live": "polite" }, res == null ? (React.createElement("span", { className: "calc-wait" }, `Answer all ${n} questions (${done} of ${n})`)) : (React.createElement(React.Fragment, null,
+            React.createElement("div", { className: "calc-score" },
+                React.createElement("span", { className: "calc-num" }, total),
+                React.createElement("span", { className: "calc-band" }, res[1])),
+            React.createElement("p", { className: "calc-src" }, cfg.src)))),
+        cfg.notes(ans).map((x, i) => React.createElement("p", { className: "calc-note", key: i }, x)),
+        done > 0 && (React.createElement("button", { className: "calc-clear", onClick: () => { setAns({}); setSex(null); } }, "Clear"))));
+}
+const Phq9 = () => React.createElement(Questionnaire, { qk: "phq9" });
+const Gad7 = () => React.createElement(Questionnaire, { qk: "gad7" });
+const AuditC = () => React.createElement(Questionnaire, { qk: "auditc" });
 /* Cockcroft–Gault: CrCl (mL/min) = (140 − age) × weight (kg) ÷ (72 × SCr in mg/dL),
    × 0.85 if female (Cockcroft & Gault, Nephron 1976). SCr in µmol/L ÷ 88.4 = mg/dL.
    Actual body weight, as Canadian DOAC monographs specify (CJHP 2016). VTE
@@ -6631,7 +6723,7 @@ function Herdoo2() {
             React.createElement("p", { className: "calc-src" }, "Rodger et al., BMJ 2017 \u00B7 Thrombosis Canada duration guide, 2026"))),
         (fits || Object.values(on).some(Boolean)) && React.createElement("button", { className: "calc-clear", onClick: () => { setFits(null); setOn({}); } }, "Clear")));
 }
-const CALC_COMPONENTS = { crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss };
+const CALC_COMPONENTS = { crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
 /* ---------------------------------------------------------------- PAGES */
 const formatMonth = (ym) => {
     const m = /^(\d{4})-(\d{2})$/.exec(ym || "");
