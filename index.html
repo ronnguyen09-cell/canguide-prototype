@@ -394,9 +394,7 @@ function(a,b,c){if(!Vd(b))throw Error(m(200));return Wd(null,a,b,!1,c)};Q.unmoun
       home screen's Recently updated list uses it.
   11. `source.checked` (YYYY-MM) is when the topic was last checked
       against its primary source. `reviewedBy` holds the date
-      (YYYY-MM-DD) a physician verified every point against the source;
-      the topic shows only "Independently verified" — no name or date. Until then the topic shows "Clinical review:
-      pending".
+      (YYYY-MM-DD) a physician verified every point against the source.
   12. Scope is the average office family physician: what is assessed,
       started or followed up in a clinic visit. Emergency and inpatient
       workups (acute chest pain, sepsis) are out of scope; a topic
@@ -534,14 +532,11 @@ const TOPICS = [
             "Repeat | Not on treatment: no more than every **5 years**, preferably **10**, unless risk factors change",
             "Don't use | **Lp(a), ApoB or CAC** to assess risk. No risk calculator if they already have CVD — they are high risk",
             "Primary prevention | By 10-year Framingham risk: ;; **≥ 20%** → discuss a **high-intensity** statin ;; **10–19%** → discuss a **moderate-intensity** statin ;; **< 10%** → recheck in 5–10 years ;; Statin only — **ezetimibe, fibrates and PCSK9 inhibitors are not recommended**, alone or added to a statin",
-            "Secondary prevention | ;; Encourage a **high-intensity statin** ;; Want more risk reduction: discuss **ezetimibe or a PCSK9 inhibitor**‡ ;; **Icosapent ethyl** only after those meds are trialed",
+            "Secondary prevention | ;; Encourage a **high-intensity statin** ;; Want more risk reduction: discuss **ezetimibe or a PCSK9 inhibitor** ;; **Icosapent ethyl** only after those meds are trialed",
             "Over 75 | ;; Primary prevention: no lipid testing or risk calculator, and **no routine new statin** (can discuss if in good health) ;; **Don't stop** a tolerated statin because of age ;; After a CV event: encourage a statin",
             "Statin intolerance | Non-severe muscle symptoms → **any statin, any dose** (switch, lower dose, alternate days) over non-statins. If no statin is tolerated: primary prevention, no other drug; secondary prevention, discuss ezetimibe, a fibrate or a PCSK9 inhibitor",
             "After starting | **No repeat lipids and no targets**. No baseline CK or ALT if well. Don't change a statin for cognitive concerns",
             "Lifestyle | **Mediterranean diet**. Any physical activity they'll keep doing",
-        ],
-        footnotes: [
-            { mark: "‡", text: "**Reviewer note, not stated in the guideline:** consider referral to cardiology or a lipid clinic before starting a PCSK9 inhibitor." },
         ],
         meds: [
             {
@@ -603,7 +598,7 @@ const TOPICS = [
                     "Which number | TG **> 1.5 mmol/L** → follow **non-HDL-C or ApoB** instead of LDL-C†",
                     "Statin-indicated | Statin regardless of risk score: ;; ASCVD (MI, angina, stroke or TIA, PAD) ;; AAA **> 3.0 cm** or prior repair ;; Diabetes: age **≥ 40**, or ≥ 30 with 15+ years of diabetes, or microvascular disease ;; CKD, age **≥ 50**: eGFR < 60 or ACR ≥ 3 mg/mmol, not on dialysis ;; LDL-C **≥ 5.0 mmol/L**† (likely familial hypercholesterolemia)",
                     "Primary prevention | By Framingham risk (FRS): ;; **≥ 20%** → statin ;; **10–19.9%** → statin if LDL-C ≥ 3.5 mmol/L†, or a risk modifier* ;; **5–9%** with LDL-C ≥ 3.5 mmol/L → consider statin, especially with a risk modifier* ;; Otherwise lifestyle alone",
-                    "Secondary prevention | **High-intensity statin** for all (maximally tolerated if not). LDL-C still **≥ 1.8 mmol/L**† → add **ezetimibe**. Still above → **PCSK9 inhibitor**‡",
+                    "Secondary prevention | **High-intensity statin** for all (maximally tolerated if not). LDL-C still **≥ 1.8 mmol/L**† → add **ezetimibe**. Still above → **PCSK9 inhibitor**",
                     "Monitoring | **ALT once** within the first 3 months. **CK only if myalgias**. No routine ALT or CK after that",
                     "After pregnancy complications | After a hypertensive disorder, gestational diabetes, preterm birth, stillbirth, low birth weight or placental abruption: ;; **Lipid panel** once postpartum ;; Counsel on her **higher lifetime CV risk**",
                     "Fish oil | **No OTC omega-3** supplements for CV risk",
@@ -612,7 +607,6 @@ const TOPICS = [
                 footnotes: [
                     { mark: "*", text: "**Risk modifiers:** men ≥ 50 or women ≥ 60 with one of low HDL-C, impaired fasting glucose, high waist circumference, smoking or hypertension; family history of premature CAD (men ≤ 55, women ≤ 65); Lp(a) ≥ 50 mg/dL (≥ 100 nmol/L); CAC > 0; hsCRP ≥ 2.0 mg/L." },
                     { mark: "†", text: "**Equivalent thresholds:** LDL-C 1.8 = non-HDL-C 2.4 = ApoB 0.7 g/L. LDL-C 3.5 = non-HDL-C 4.2 = ApoB 1.05 g/L. LDL-C 5.0 = non-HDL-C 5.8 = ApoB 1.45 g/L. Lipids in mmol/L." },
-                    { mark: "‡", text: "**Reviewer note, not stated in the guideline:** consider referral to cardiology or a lipid clinic before starting a PCSK9 inhibitor." },
                 ],
                 meds: [
                     {
@@ -760,10 +754,6 @@ const TOPICS = [
             "Around cardioversion | ;; Anticoagulate for **≥ 3 weeks before** elective cardioversion and **≥ 4 weeks after**, including CHADS 0 patients under 65 ;; Continuing past 4 weeks is decided by CHADS-65",
             "Refer | ;; New heart failure or falling exercise capacity ;; WPW ;; Postural symptoms ;; AF under age 50 ;; Complex anticoagulation decisions (e.g., ACS or PCI within 12 months) ;; Considering cardioversion or ablation",
         ],
-        footnotes: [
-            { mark: "*", text: "**Reviewer note, not verified against the guideline:** don't reduce a DOAC dose for advanced age, recurrent falls or minor bleeding alone." },
-            { mark: "†", text: "**Reviewer note, not verified against the guideline:** edema is the usual dose-limiting effect of diltiazem." },
-        ],
         meds: [
             {
                 name: "Apixaban",
@@ -792,7 +782,7 @@ const TOPICS = [
             {
                 name: "DOACs (class note)",
                 dose: "Applies to apixaban, rivaroxaban, dabigatran and edoxaban",
-                adjustment: "Use Cockcroft-Gault CrCl. ESRD or dialysis: decide with nephrology. Dose reduction for age, falls or minor bleeding: see reviewer note*.",
+                adjustment: "Use Cockcroft-Gault CrCl. ESRD or dialysis: decide with nephrology.",
             },
             {
                 name: "Beta-blockers (class note)",
@@ -827,7 +817,7 @@ const TOPICS = [
             {
                 name: "Diltiazem",
                 dose: "ER: initial 120 mg daily; typical 360 mg daily. IR: initial 30 mg q6–8h; typical 120 mg q6–8h",
-                adjustment: "Once-daily preparation preferred. Contraindicated in pre-excitation, LV dysfunction and heart failure. Dose-limiting effect: see reviewer note†.",
+                adjustment: "Once-daily preparation preferred. Contraindicated in pre-excitation, LV dysfunction and heart failure.",
                 src: "AHS Calgary Zone AF primary care pathway (2025), Table 5A, from CCS 2020",
             },
             {
@@ -854,7 +844,7 @@ const TOPICS = [
                 url: "https://ontario.ca/files/2024-07/moh-executive-officer-notice-en-2024-07-24.pdf",
             },
         ],
-        editorial: "Audited 2026-11. The CCS 2020 recommendation text could not be read in full: the CJC full text is readable only through section 4 (classification, diagnosis, screening). Points were checked against the AHS Calgary Zone AF primary care pathway (updated Jul 2025), which is aligned to CCS 2020 and reproduces its tables, and against the readable CJC sections. The < 100 bpm rate target and ≥ 3 weeks of anticoagulation before cardioversion were confirmed from CardioGuide (Calgary), which reproduces the CCS 2020 material. DOAC doses are from the current Health Canada product monographs (Eliquis, Xarelto, Pradaxa, Teva-Edoxaban; the Lixiana brand was cancelled in Feb 2026). Rate-control doses are from the pathway's Table 5A. Two lines that could not be verified from a readable source are shown as reviewer notes.",
+        editorial: "Audited 2026-11. The CCS 2020 recommendation text could not be read in full: the CJC full text is readable only through section 4 (classification, diagnosis, screening). Points were checked against the AHS Calgary Zone AF primary care pathway (updated Jul 2025), which is aligned to CCS 2020 and reproduces its tables, and against the readable CJC sections. The < 100 bpm rate target and ≥ 3 weeks of anticoagulation before cardioversion were confirmed from CardioGuide (Calgary), which reproduces the CCS 2020 material. DOAC doses are from the current Health Canada product monographs (Eliquis, Xarelto, Pradaxa, Teva-Edoxaban; the Lixiana brand was cancelled in Feb 2026). Rate-control doses are from the pathway's Table 5A.",
     },
     /* ---------------- ENDOCRINE ---------------- */
     {
@@ -1243,9 +1233,6 @@ const TOPICS = [
             "Step up | First correct adherence, technique, empty inhaler, exposures, comorbidities: ;; **≥ 12 y**: LABA in the **same inhaler** (alternatives: add an LTRA, or increase to medium-dose ICS) ;; **6–11 y**: medium-dose ICS, then LABA or LTRA ;; LTRA is second line at every age ;; **Refer**: child not controlled on medium-dose ICS, any asthma admission, or ≥ 2 ED visits",
             "Yellow zone | **Never double** the ICS: ;; ≥ 16 y with a severe exacerbation in the past year: **≥ 4-fold ICS** for 7–14 days ;; **Daily bud/form**: max 4 inhalations BID ;; **PRN bud/form**: max 8 inhalations/day ;; Oral prednisone isn't routine in an action plan, only after a recent severe exacerbation that fails inhaled SABA: adults 30–50 mg daily for ≥ 5 days; children 1 mg/kg/day (max 50 mg) for ≥ 3 days",
         ],
-        footnotes: [
-            { mark: "*", text: "**Reviewer note, not stated in the guideline:** book a review within 2 weeks of starting montelukast, when neuropsychiatric effects typically appear." },
-        ],
         meds: [
             {
                 name: "Budesonide / formoterol (bud/form)",
@@ -1274,7 +1261,7 @@ const TOPICS = [
             {
                 name: "Montelukast (LTRA)",
                 dose: "≥ 15 y: 10 mg; 6–14 y: 5 mg chewable; 2–5 y: 4 mg chewable or granules; once daily in the evening",
-                adjustment: "Second line to daily ICS at every age. Serious warning for neuropsychiatric events — irritability, aggression, anxiety, sleep disturbance, suicidal thoughts or actions — reported in up to 16% of children started on it, typically within 2 weeks. Discuss these with patients and parents before starting; follow-up timing: see reviewer note*.",
+                adjustment: "Second line to daily ICS at every age. Serious warning for neuropsychiatric events — irritability, aggression, anxiety, sleep disturbance, suicidal thoughts or actions — reported in up to 16% of children started on it, typically within 2 weeks. Discuss these with patients and parents before starting.",
                 src: "Singulair product monograph (Organon, 2021); CTS 2021",
             },
             {
@@ -1534,7 +1521,7 @@ const TOPICS = [
             },
             {
                 name: "Ferrous gluconate",
-                dose: "300 mg tablet (35 mg elemental iron), 1–2 BID to TID, never more than 5 tablets a day in total (2 TID would be 6)",
+                dose: "300 mg tablet (35 mg elemental iron), 1–2 BID; never more than 5 tablets a day in total",
                 adjustment: "Lowest elemental iron per tablet — easy to underdose. No renal adjustment stated.",
             },
             {
