@@ -5505,6 +5505,37 @@ const STYLES = `
 .drug-dose{font-family:var(--mono);font-size:14px;line-height:1.5;margin-top:4px;color:var(--ink);}
 .drug-src{padding:0 14px 8px;margin-top:-4px;font-size:11.5px;color:var(--faint);}
 .drug-adj{padding:10px 14px 12px;background:var(--sunk);font-size:14.5px;line-height:1.5;border-top:1px solid var(--line);}
+.fb{margin:0;}
+.fb-box{width:38%;min-width:210px;margin:9px 0 2px auto;}
+.fb-bar{display:flex;height:5px;border-radius:2.5px;overflow:hidden;background:#ECEBE4;}
+.fb-d{background:#A63D2A;display:block;}
+.fb-a{background:#1E6B52;display:block;margin-left:auto;}
+.fb-meta{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:11.5px;color:#8a897f;}
+.fb-meta b{color:#3d3d38;font-weight:600;}
+.fb-end{font:inherit;color:inherit;background:none;border:0;padding:5px 0 3px;cursor:pointer;text-align:left;}
+.fb-r{text-align:right;}
+.fb-end.on{font-weight:700;}
+.fb-end.fb-l.on{color:#A63D2A;}
+.fb-end.fb-r.on{color:#1E6B52;}
+.fb-none{flex:1;text-align:center;}
+.fb-sum{margin:6px 0 0;padding-left:10px;border-left:2px solid #A63D2A;font-size:13px;color:#3d3d38;line-height:1.5;}
+.fb-sum-l{font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:#8a897f;}
+.fb-add{font:inherit;font-size:12px;color:#1E6B52;background:none;border:0;padding:5px 0;cursor:pointer;}
+.fb-panel{margin:6px 0 2px auto;max-width:420px;}
+.fb-q{display:block;font-size:13px;color:var(--ink);}
+.fb-q textarea{display:block;width:100%;margin-top:4px;font:inherit;font-size:16px;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);resize:vertical;}
+.fb-pick{display:flex;gap:6px;margin-bottom:6px;}
+.fb-pick button{flex:1;min-height:36px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--ink);font:inherit;font-size:13px;}
+.fb-pick button[aria-pressed="true"]{border-color:#1E6B52;color:#1E6B52;font-weight:700;}
+.fb-go{margin-top:6px;min-height:38px;padding:0 18px;border-radius:8px;background:#1E6B52;color:#fff;font:inherit;font-size:14px;font-weight:650;border:0;}
+.fb-go[disabled]{opacity:.6;}
+.fb-err{margin:6px 0 0;font-size:13px;color:#A63D2A;}
+.fb-ok{margin:4px 0 0;text-align:right;font-size:12.5px;color:#1E6B52;}
+.drug > .fb{padding:0 14px 10px;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .fb-bar{background:#2c2c29;}:root:not([data-theme="light"]) .fb-meta b,:root:not([data-theme="light"]) .fb-sum{color:#e6e4da;}:root:not([data-theme="light"]) .fb-meta,:root:not([data-theme="light"]) .fb-sum-l{color:#A3A198;}}
+:root[data-theme="dark"] .fb-bar{background:#2c2c29;}
+:root[data-theme="dark"] .fb-meta b,:root[data-theme="dark"] .fb-sum{color:#e6e4da;}
+:root[data-theme="dark"] .fb-meta,:root[data-theme="dark"] .fb-sum-l{color:#A3A198;}
 .drug-adj-label{display:block;font-size:11px;font-weight:750;letter-spacing:0.06em;text-transform:uppercase;color:var(--muted);margin-bottom:3px;}
 
 .prov-pick{display:flex;align-items:center;gap:10px;margin-bottom:10px;font-size:14px;color:var(--muted);}
@@ -6266,7 +6297,8 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                             React.createElement("span", { className: "point-n", "aria-hidden": "true" }, i + 1),
                             React.createElement("div", null,
                                 label && React.createElement("span", { className: "point-label" }, label),
-                                pointBody(body))));
+                                pointBody(body),
+                                React.createElement(FbSlot, { topic: t, kind: "point", refText: "Point " + (i + 1), itemKey: fbKey(t, pw, "point", i + 1), snap: fbPlain((label ? label + ": " : "") + body) }))));
                     })),
                     pw.notes.length > 0 && React.createElement("div", { className: "notes" }, pw.notes.map((n, i) => (React.createElement("details", { className: "xnote", key: pw.key + i },
                         React.createElement("summary", null,
@@ -6305,7 +6337,8 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                                 React.createElement("b", null, "Gap"),
                                 rich(gapText(m.adjustment)))) : (React.createElement("div", { className: "drug-adj" },
                                 React.createElement("span", { className: "drug-adj-label" }, "Adjust \u00B7 watch"),
-                                rich(m.adjustment || "No adjustment stated."))))))))),
+                                rich(m.adjustment || "No adjustment stated."))),
+                            React.createElement(FbSlot, { topic: t, kind: "med", refText: m.name, itemKey: fbKey(t, pw, "med", m.name), snap: fbPlain(m.name + ": " + m.dose) }))))))),
                     (prov.length > 0 || province) && (React.createElement("section", { className: "sec", id: "s-province" },
                         React.createElement("h2", { className: "sec-title" }, "By province"),
                         React.createElement("label", { className: "prov-pick" },
@@ -6819,6 +6852,114 @@ function AmoxKg({ topicId }) {
             React.createElement("p", { className: "calc-src" }, "Regimens as printed in the Sore throat, Acute otitis media, Pneumonia in children and Lyme disease entries. Volumes are rounded to 0.1 mL from the dose in whole mg.")))),
         (wt || ind !== start) && React.createElement("button", { className: "calc-clear", onClick: () => { setWt(""); if (start) pick(start); else { setInd(null); setReg(0); } } }, "Clear")));
 }
+/* ---------------------------------------------------------------- READER FEEDBACK
+   "Real-life applicability": under each point and medication row, readers say
+   whether it applies in their own practice. Anonymous; counts and one
+   paraphrased doesn't-apply summary come from feedback.json beside the page.
+   Everything here is guarded so a failure leaves the topic page unchanged. */
+const FB_URL = "https://formsubmit.co/ajax/root1@muse.ai";
+let FB_PROMISE = null;
+function fbLoad() {
+    if (!FB_PROMISE) {
+        try {
+            FB_PROMISE = fetch("feedback.json", { cache: "no-store" })
+                .then((r) => (r.ok ? r.json() : null))
+                .then((j) => (j && j.items && typeof j.items === "object" ? j.items : {}))
+                .catch(() => ({}));
+        }
+        catch (e) {
+            FB_PROMISE = Promise.resolve({});
+        }
+    }
+    return FB_PROMISE;
+}
+function fbMine() {
+    try {
+        const m = JSON.parse(window.localStorage.getItem("cg.fb.v1") || "{}");
+        return m && typeof m === "object" && !Array.isArray(m) ? m : {};
+    }
+    catch (e) {
+        return {};
+    }
+}
+function fbRemember(key, stance) {
+    try {
+        const m = fbMine();
+        m[key] = stance;
+        window.localStorage.setItem("cg.fb.v1", JSON.stringify(m));
+    }
+    catch (e) { }
+}
+const fbPlain = (s) => String(s || "").replace(/\*\*/g, "").replace(/ ?;;;? ?/g, "; ").replace(/ ?:: ?/g, ": ").replace(/\s+/g, " ").trim().slice(0, 200);
+/* Item keys: <topic>|point|<n> and <topic>|med|<name>; a topic with more than one pathway adds the pathway name as printed on its picker. */
+const fbKey = (t, pw, kind, tail) => (t.paths.length > 1 ? `${t.id}|${pathPlace(pw)}|` : `${t.id}|`) + kind + "|" + tail;
+class FbBoundary extends React.Component {
+    constructor(p) { super(p); this.state = { bad: false }; }
+    static getDerivedStateFromError() { return { bad: true }; }
+    render() { return this.state.bad ? null : this.props.children; }
+}
+function FeedbackItem({ topic, kind, refText, itemKey, snap }) {
+    const [items, setItems] = useState(null);
+    const [mine, setMine] = useState(() => fbMine()[itemKey] || null);
+    const [panel, setPanel] = useState(null);
+    const [text, setText] = useState("");
+    const [status, setStatus] = useState("idle");
+    useEffect(() => { let live = true; fbLoad().then((d) => { if (live) setItems(d); }); return () => { live = false; }; }, []);
+    const rec = (items && items[itemKey]) || {};
+    const a = Math.max(0, +rec.a || 0), d = Math.max(0, +rec.d || 0), n = a + d;
+    const summary = n > 0 && typeof rec.summary_d === "string" && rec.summary_d.trim() ? rec.summary_d : null;
+    const openEnd = (stance) => {
+        if (stance === mine && !panel) return;
+        if (panel && panel.stance === stance) { setPanel(null); return; }
+        setPanel({ stance }); setStatus("idle");
+    };
+    const openComment = () => { if (panel && panel.comment) { setPanel(null); return; } setPanel({ stance: null, comment: true }); setStatus("idle"); };
+    const submit = () => {
+        const stance = panel.stance || "comment";
+        setStatus("sending");
+        const body = { topic: topic.title, topic_id: topic.id, item_kind: kind, item_ref: refText, item_key: itemKey, item_text: snap, stance, why: text.trim(), _subject: "CanGuide feedback: " + topic.title, _template: "table", _captcha: "false", _honey: "" };
+        let req;
+        try {
+            req = fetch(FB_URL, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(body) })
+                .then((r) => r.json().catch(() => ({})).then((j) => { if (!(r.ok && (j.success === true || j.success === "true"))) throw new Error("send"); }));
+        }
+        catch (e) {
+            req = Promise.reject(e);
+        }
+        req.then(() => {
+            if (stance !== "comment") { fbRemember(itemKey, stance); setMine(stance); }
+            setPanel(null); setText(""); setStatus("done");
+        }, () => setStatus("error"));
+    };
+    const endCls = (k) => "fb-end" + (mine === k ? " on" : "");
+    const prompt = !panel ? "" : panel.stance === "doesnt_apply" ? "Why doesn't this apply in your practice?" : panel.stance === "applies" ? "Why does this apply in your practice?" : "Add a comment";
+    return (React.createElement("div", { className: "fb" },
+        React.createElement("div", { className: "fb-box" },
+            React.createElement("div", { className: "fb-bar", role: "img", "aria-label": n ? `${d} say it doesn't apply, ${a} say it applies` : "No responses yet" },
+                n > 0 && d > 0 && React.createElement("span", { className: "fb-d", style: { width: (100 * d / n) + "%" } }),
+                n > 0 && a > 0 && React.createElement("span", { className: "fb-a", style: { width: (100 * a / n) + "%" } })),
+            React.createElement("div", { className: "fb-meta" },
+                React.createElement("button", { type: "button", className: endCls("doesnt_apply") + " fb-l", "aria-pressed": mine === "doesnt_apply", onClick: () => openEnd("doesnt_apply") },
+                    "Doesn't apply", n > 0 && React.createElement(React.Fragment, null, " ", React.createElement("b", null, d))),
+                n === 0 && React.createElement("span", { className: "fb-none" }, "No responses yet"),
+                React.createElement("button", { type: "button", className: endCls("applies") + " fb-r", "aria-pressed": mine === "applies", onClick: () => openEnd("applies") },
+                    n > 0 && React.createElement(React.Fragment, null, React.createElement("b", null, a), " "), "Applies")),
+            summary && React.createElement("div", { className: "fb-sum" },
+                React.createElement("div", { className: "fb-sum-l" }, "Where it doesn't apply"),
+                summary),
+            React.createElement("button", { type: "button", className: "fb-add", onClick: openComment }, "Add a comment")),
+        panel && React.createElement("div", { className: "fb-panel" },
+            panel.comment && React.createElement("div", { className: "fb-pick", role: "group", "aria-label": "Optional: your stance" },
+                React.createElement("button", { type: "button", "aria-pressed": panel.stance === "doesnt_apply", onClick: () => setPanel({ ...panel, stance: panel.stance === "doesnt_apply" ? null : "doesnt_apply" }) }, "Doesn't apply"),
+                React.createElement("button", { type: "button", "aria-pressed": panel.stance === "applies", onClick: () => setPanel({ ...panel, stance: panel.stance === "applies" ? null : "applies" }) }, "Applies")),
+            React.createElement("label", { className: "fb-q" },
+                React.createElement("span", null, prompt),
+                React.createElement("textarea", { rows: 3, maxLength: 1000, value: text, onChange: (e) => setText(e.target.value), "aria-label": prompt })),
+            status === "error" && React.createElement("p", { className: "fb-err", role: "alert" }, "Could not send. Please try again."),
+            React.createElement("button", { type: "button", className: "fb-go", disabled: status === "sending", onClick: submit }, status === "sending" ? "Sending…" : "Submit")),
+        !panel && status === "done" && React.createElement("p", { className: "fb-ok", role: "status" }, "Recorded. Thank you.")));
+}
+const FbSlot = (props) => React.createElement(FbBoundary, null, React.createElement(FeedbackItem, props));
 const CALC_COMPONENTS = { amoxkg: AmoxKg, crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
 /* ---------------------------------------------------------------- PAGES */
 const formatMonth = (ym) => {
@@ -6900,6 +7041,8 @@ function AboutPage({ go }) {
                 React.createElement("span", { className: "tier", "data-tier": "none" }, "No guideline"),
                 " No settled guidance anywhere \u00B7 ",
                 tiers.none || 0)),
+        React.createElement("h2", { className: "sec-title" }, "Real-life applicability"),
+        React.createElement("p", null, "Under each point and medication row, readers can say whether it applies in their own practice, and why. The counts show how readers have split. Where readers say something does not apply, their reasons appear as a short paraphrased summary, never as direct quotes. Responses are anonymous."),
         React.createElement("h2", { className: "sec-title" }, "Use with judgment"),
         React.createElement("p", null, "CanGuide is a reference, not a substitute for clinical judgment or the full guideline. Doses and thresholds can change \u2014 confirm against the source linked on every topic before acting, especially for children, pregnancy and kidney or liver disease."),
         React.createElement("h2", { className: "sec-title" }, "Privacy"),
