@@ -5206,6 +5206,7 @@ const CALCULATORS_META = {
     herdoo2: { title: "HERDOO2", short: "HERDOO2", blurb: "Can a woman stop anticoagulation after a first unprovoked VTE?" },
     fib4: { title: "FIB-4", short: "FIB-4", blurb: "Liver fibrosis risk in MASLD" },
     mcisaac: { title: "McIsaac (modified Centor) score", short: "McIsaac", blurb: "Who to test for strep throat" },
+    crb65: { title: "CRB-65", short: "CRB-65", blurb: "Where to treat community-acquired pneumonia" },
     ipss: { title: "IPSS (International Prostate Symptom Score)", short: "IPSS", blurb: "Lower urinary tract symptom severity in BPH" },
     phq9: { title: "PHQ-9 (Patient Health Questionnaire-9)", short: "PHQ-9", blurb: "Depression symptom severity" },
     gad7: { title: "GAD-7 (Generalized Anxiety Disorder-7)", short: "GAD-7", blurb: "Anxiety symptom severity" },
@@ -5220,6 +5221,7 @@ const TOPIC_CALCS = {
     masld: ["fib4"],
     pharyngitis: ["mcisaac", "amoxkg"],
     aom: ["amoxkg"],
+    "cap-adult": ["crb65"],
     "cap-child": ["amoxkg"],
     lyme: ["amoxkg"],
     bph: ["ipss"],
@@ -7010,7 +7012,40 @@ function FeedbackItem({ topic, kind, refText, itemKey, snap }) {
         !panel && status === "done" && React.createElement("p", { className: "fb-ok", role: "status" }, "Recorded. Thank you.")));
 }
 const FbSlot = (props) => React.createElement(FbBoundary, null, React.createElement(FeedbackItem, props));
-const CALC_COMPONENTS = { amoxkg: AmoxKg, crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
+/* CRB-65. One point each; action wording as printed by INESSS. Nothing is stored. */
+const CRB65_ITEMS = [
+    ["conf", "Confusion"],
+    ["rr", "Respiratory rate \u2265 30/min"],
+    ["bp", "Systolic BP < 90 or diastolic \u2264 60 mmHg"],
+    ["age", "Age \u2265 65"],
+];
+const CRB65_ACT = [
+    "Low risk \u2014 treat at home",
+    "Moderate risk \u2014 refer patient to hospital (unless the point was given for the age criterion, in which case use clinical judgement)",
+    "Moderate risk \u2014 refer patient to hospital",
+    "High risk \u2014 refer patient to hospital",
+    "High risk \u2014 refer patient to hospital",
+];
+function Crb65() {
+    const [on, setOn] = useState({});
+    const score = CRB65_ITEMS.filter(([k]) => on[k]).length;
+    const tone = score === 0 ? "low" : score <= 2 ? "mid" : "high";
+    return (React.createElement("div", { className: "calc" },
+        React.createElement("div", { className: "checks" },
+            CRB65_ITEMS.map(([k, label]) => (React.createElement("label", { key: k, className: "calc-check" },
+                React.createElement("input", { type: "checkbox", checked: !!on[k], onChange: (e) => setOn({ ...on, [k]: e.target.checked }) }),
+                React.createElement("span", null,
+                    label,
+                    React.createElement("span", { className: "calc-hint" }, " +1")))))),
+        React.createElement("div", { className: "calc-out", "data-band": tone, "aria-live": "polite" },
+            React.createElement("div", { className: "calc-score" },
+                React.createElement("span", { className: "calc-num" }, score),
+                React.createElement("span", { className: "calc-band" }, "of 4")),
+            React.createElement("p", { className: "calc-act" }, CRB65_ACT[score]),
+            React.createElement("p", { className: "calc-note" }, "Score 0 with SpO\u2082 > 92% on room air \u2192 usually outpatient (Point 1). The score supports, and does not replace, clinical judgement.")),
+        Object.values(on).some(Boolean) && (React.createElement("button", { className: "calc-clear", onClick: () => setOn({}) }, "Clear"))));
+}
+const CALC_COMPONENTS = { amoxkg: AmoxKg, crcl: Crcl, chads65: Chads65, herdoo2: Herdoo2, fib4: Fib4, mcisaac: McIsaac, crb65: Crb65, ipss: Ipss, phq9: Phq9, gad7: Gad7, auditc: AuditC };
 /* ---------------------------------------------------------------- PAGES */
 const formatMonth = (ym) => {
     const m = /^(\d{4})-(\d{2})$/.exec(ym || "");
