@@ -3043,22 +3043,33 @@ const TOPICS = [
             tier: "national",
             state: "Current CAG guideline, from 2019. It gives no doses; the dosing grid comes from the Alberta Health Services IBS Primary Care Pathway (June 2023), except eluxadoline, whose dose is from its product monograph.",
         },
+        alsoSources: [
+            {
+                org: "Alberta Health Services",
+                citation: "IBS Primary Care Pathway. Digestive Health Strategic Clinical Network (June 2023)",
+                url: "https://www.albertahealthservices.ca/assets/about/scn/ahs-scn-dh-pathway-ibs.pdf",
+                tier: "provincial",
+                level: "provincial",
+                province: "AB",
+                checked: "2026-11",
+            },
+        ],
         changed: "",
         beyondGuideline: "",
         points: [
             "Diagnose | Rome IV: abdominal pain **≥ 1 day a week for ≥ 3 months**, linked to defecation or a change in bowel habit. Subtype by stool form (IBS-C, IBS-D, mixed or unclassified), because treatment follows the subtype",
-            "Alarm features | Any one of these → investigate or refer: ;; First-degree relative with IBD or colorectal cancer ;; Onset **after 50** ;; Unintended weight loss > 5% over 6–12 months ;; Visible blood ;; Nocturnal symptoms ;; Iron deficiency anemia",
-            "Test | **Celiac serology**. CBC and ferritin. **Not** CRP, routine fecal calprotectin, food allergy testing, or lactose or glucose breath tests. Calprotectin only if IBD is suspected: ;; **< 50**: normal ;; **50–120**: indeterminate, repeat in 4–6 weeks if symptoms persist ;; **> 120**: refer",
+            "Alarm features | Any one of these → investigate or refer (Alberta pathway): ;; First-degree relative with IBD or colorectal cancer ;; Onset **after 50** ;; Unintended weight loss > 5% over 6–12 months ;; Visible blood ;; Nocturnal symptoms ;; Iron deficiency anemia",
+            "Test | **Celiac serology**. CBC and ferritin. **Not** CRP, routine fecal calprotectin, food allergy testing, or lactose or glucose breath tests. Calprotectin only if IBD is suspected (Alberta pathway bands): ;; **< 50**: normal ;; **50–120**: indeterminate, repeat in 4–6 weeks if symptoms persist ;; **> 120**: refer",
             "Colonoscopy | New symptoms at **≥ 50** → colonoscopy. Under 50 without alarm features → no. Under 50 with alarm features, CAG suggests against routine colonoscopy; the Alberta pathway still refers them",
             "First steps | **Psyllium**, build slowly to 5–10 g/day of soluble fibre; not wheat bran. **Low FODMAP** for as short a time as possible (about 4 weeks), under a dietitian's guidance. **Not** a gluten-free diet, herbal remedies or acupuncture",
             "Symptom relief | Peppermint oil, antispasmodics (dicyclomine, hyoscine, pinaverium) and probiotics may help. CBT or hypnotherapy if available",
-            "Drugs by subtype | ;; **Any subtype**: **low-dose TCA**; SSRI ;; **IBS-D**: eluxadoline; **not** continuous loperamide or cholestyramine ;; **IBS-C**: **linaclotide**; osmotic laxatives and prucalopride don't improve overall symptoms",
+            "Drugs by subtype | ;; **Any subtype**: **low-dose TCA** ;; **IBS-D**: eluxadoline; **not** continuous loperamide or cholestyramine ;; **IBS-C**: **linaclotide**; osmotic laxatives and prucalopride don't improve overall symptoms",
         ],
         meds: [
             {
                 name: "Amitriptyline or nortriptyline",
                 dose: "10–25 mg at bedtime; increase by 10–25 mg every 3–4 weeks; often 25–75 mg/day",
-                adjustment: "Peak effect takes 2–3 months. Use the lowest effective dose, reassess at 6–12 months, and taper to stop. Caution with a prolonged QT.",
+                adjustment: "Peak effect takes 2–3 months. Use the lowest effective dose, reassess at 6–12 months, and taper to stop. Caution with a prolonged QT. CAG also suggests an SSRI for overall symptoms (conditional); neither source gives a dose.",
             },
             {
                 name: "Peppermint oil, enteric-coated",
@@ -3073,12 +3084,12 @@ const TOPICS = [
             {
                 name: "Linaclotide",
                 dose: "290 mcg once daily, 30 min before the first meal",
-                adjustment: "IBS-C. Diarrhea and upper abdominal pain are the common effects. The pathway reserves it for patients motivated for more intensive treatment.",
+                adjustment: "IBS-C. Diarrhea and upper abdominal pain are the common effects. The Alberta pathway reserves it for patients motivated for more intensive treatment.",
             },
             {
                 name: "PEG 3350",
                 dose: "17 g at night in 250 mL fluid, up to 34 g/day",
-                adjustment: "IBS-C stool frequency; onset 48–96 h; safe long term. Does not improve overall IBS symptoms. The pathway advises against lactulose because of bloating and cramps.",
+                adjustment: "IBS-C stool frequency; onset 48–96 h; safe long term. Does not improve overall IBS symptoms. The Alberta pathway advises against lactulose because of bloating and cramps.",
             },
             {
                 name: "Loperamide",
@@ -3094,7 +3105,7 @@ const TOPICS = [
             {
                 name: "Rifaximin",
                 dose: "550 mg TID for 2 weeks",
-                adjustment: "IBS-D, second line in the pathway; CAG made no recommendation. Often needs repeat courses, with no data beyond three.",
+                adjustment: "IBS-D, second line in the Alberta pathway; CAG made no recommendation. Often needs repeat courses, with no data beyond three.",
             },
         ],
         calculators: [],
@@ -3107,8 +3118,13 @@ const TOPICS = [
                 note: "Pathway requisition makes **TTG and fecal calprotectin free** at KGH Armstrong 1 or HDH Jeanne Mance 5; refers at calprotectin **> 100**; adds duloxetine 30 → 60 mg and plecanatide 3 mg daily (IBS-C)",
                 url: "https://kingstonhsc.ca/media/15914/download",
             },
+            {
+                scope: "ON", kind: "pathway", label: "Ontario Working Group IBS treatment pathway (2025)",
+                note: "Three-visit primary care pathway (UHN, Hamilton Health Sciences, St. Joseph's Healthcare London). Broader visit-1 testing: TSH and calcium for every subtype, and fecal calprotectin, CRP and stool ova and parasites for IBS-D/M. An SSRI is its visit-3 step for residual pain",
+                url: "https://dxlink.ca/CJDX/2025/March/pdf/Ontario_Working_Group_IBS_Treatment_Pathway.pdf",
+            },
         ],
-        editorial: "Recommendations from the CAG guideline, read in full on the OUP journal site and the PMC copy. Doses from the AHS / Digestive Health SCN IBS Primary Care Pathway as AHS serves it (June 2023; review was due April 2024); a browser check on Nov 3, 2026 confirmed this is the current copy, matching the Primary Care Alberta Pathway Hub (pathways/228, 'Last updated: June 1, 2023'). The Thunder Bay RHSC July 2023 copy is a regional adaptation, per its own Background section. Ron's decision: follow the AHS-served copy. The calprotectin bands now follow it (< 50 normal; 50–120 indeterminate; > 120 refer); the previous bands (< 100 / 100–200 / > 200) came from the Thunder Bay adaptation. The AHS-served copy has no eluxadoline, so that row is sourced to CAG 2019 and the Viberzi monograph (2024); the monograph gives 75 mg as the starting dose at 65 or over and contraindicates any hepatic impairment. Every other Alberta-attributed detail was confirmed in the AHS-served copy. KHSC IBS pathway (Oct 2024) read in full. Lubiprostone removed (Ron's decision): CAG suggests it for IBS-C (conditional, moderate certainty), but its only Canadian product (Amitiza) was cancelled pre-market on Dec 17, 2020 and never marketed, so do not re-add it. Trimebutine removed from the antispasmodic row: CAG's pooled analysis found it not shown effective, and the national guideline supersedes the Alberta pathway's listing. CAG statements A–C (relaxation, psychodynamic therapy, rifaximin) carried no recommendation.",
+        editorial: "Recommendations from the CAG guideline, read in full on the OUP journal site and the PMC copy. Doses from the AHS / Digestive Health SCN IBS Primary Care Pathway as AHS serves it (June 2023; review was due April 2024); a browser check on Nov 3, 2026 confirmed this is the current copy, matching the Primary Care Alberta Pathway Hub (pathways/228, 'Last updated: June 1, 2023'). The Thunder Bay RHSC July 2023 copy is a regional adaptation, per its own Background section. Ron's decision: follow the AHS-served copy. The calprotectin bands now follow it (< 50 normal; 50–120 indeterminate; > 120 refer); the previous bands (< 100 / 100–200 / > 200) came from the Thunder Bay adaptation. The AHS-served copy has no eluxadoline, so that row is sourced to CAG 2019 and the Viberzi monograph (2024); the monograph gives 75 mg as the starting dose at 65 or over and contraindicates any hepatic impairment. Every other Alberta-attributed detail was confirmed in the AHS-served copy. KHSC IBS pathway (Oct 2024) read in full. Lubiprostone removed (Ron's decision): CAG suggests it for IBS-C (conditional, moderate certainty), but its only Canadian product (Amitiza) was cancelled pre-market on Dec 17, 2020 and never marketed, so do not re-add it. Trimebutine removed from the antispasmodic row: CAG's pooled analysis found it not shown effective, and the national guideline supersedes the Alberta pathway's listing. CAG statements A–C (relaxation, psychodynamic therapy, rifaximin) carried no recommendation. Nov 23, 2026: Alberta pathway added as a second source and named where the rows said 'the pathway'; alarm list and calprotectin bands labelled as the pathway's; Point 7's bare SSRI moved into the TCA row; Ontario Working Group pathway (2025) added as a provincial note.",
     },
     /* ---------------- GENERAL PRACTICE ---------------- */
     /* ---------------- MUSCULOSKELETAL ---------------- */
@@ -6482,6 +6498,7 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                     React.createElement("footer", { className: "colophon sec", id: "s-source" },
                         React.createElement("h2", { className: "sec-title" }, "Source"),
                         React.createElement("p", null,
+                            (t.alsoSources || []).length > 0 && paths.length === 1 && React.createElement("span", { className: "tier", "data-tier": pw.level, style: { marginRight: 8 } }, levelLabel(pw.level)),
                             React.createElement("strong", null,
                                 src.org,
                                 src.year ? ` ${src.year}` : ""),
@@ -6491,6 +6508,14 @@ function TopicPage({ topic: t, province, setProvince, open, go }) {
                             src.doi && React.createElement("a", { href: src.doi, target: "_blank", rel: "noreferrer" }, "DOI"),
                             src.doi && src.url && " · ",
                             src.url && React.createElement("a", { href: src.url, target: "_blank", rel: "noreferrer" }, "Primary source")),
+                        paths.length === 1 && (t.alsoSources || []).map((x, k) => React.createElement(React.Fragment, { key: k },
+                            React.createElement("p", null,
+                                React.createElement("span", { className: "tier", "data-tier": levelOf(x), style: { marginRight: 8 } }, levelLabel(levelOf(x))),
+                                React.createElement("strong", null, x.org),
+                                " \u00B7 ",
+                                x.citation),
+                            React.createElement("p", null,
+                                x.url && React.createElement("a", { href: x.url, target: "_blank", rel: "noreferrer" }, "Primary source")))),
                         src.state && React.createElement("p", { className: "state" }, src.state),
                         React.createElement("p", null, "Original synthesis, not a reproduction of the guideline. Confirm against the primary document before acting.")))))));
 }
